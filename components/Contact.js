@@ -1,7 +1,57 @@
-import React from "react";
+import React,{useState} from "react";
 import userData from "@constants/data";
+import emailjs from "emailjs-com";
 
 export default function Contact() {
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    message: "",
+  });
+  const [status, setStatus] = useState("");
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const validateForm = () => {
+    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
+      setStatus("Please fill out all fields ❗");
+      return false;
+    }
+    // простая проверка email
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(formData.email)) {
+      setStatus("Invalid email format ⚠️");
+      return false;
+    }
+    return true;
+  };
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    if (!validateForm()) return;
+
+    emailjs
+      .send(
+        "service_50wgfvj", // ← замени на свой ID сервиса
+        "template_zhoexop", // ← шаблон EmailJS
+        formData,
+        "-Hccfm_2DUuYXUEoN" // ← твой публичный ключ из EmailJS
+      )
+      .then(
+        () => {
+          setStatus("✅ Message sent successfully!");
+          setFormData({ name: "", email: "", message: "" });
+        },
+        (error) => {
+          console.error("EmailJS error:", error);
+          setStatus("❌ Failed to send message. Try again later.");
+        }
+      );
+  };
+
   return (
     <section>
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800 antialiased">
@@ -144,44 +194,55 @@ export default function Contact() {
               </a>
             </div>
           </div>
-          
-          <form className="form rounded-lg bg-white p-4 flex flex-col">
-            <label htmlFor="name" className="text-sm text-gray-600 mx-4">
-              {" "}
-              Your Name
-            </label>
-            <input
-              type="text"
-              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-              name="name"
-            />
-            <label htmlFor="email" className="text-sm text-gray-600 mx-4 mt-4">
-              Email
-            </label>
-            <input
-              type="text"
-              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-              name="email"
-            />
-            <label
-              htmlFor="message"
-              className="text-sm text-gray-600 mx-4 mt-4"
-            >
-              Message
-            </label>
-            <textarea
-              rows="4"
-              type="text"
-              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-              name="message"
-            ></textarea>
-            <button
-              type="submit"
-              className="bg-blue-500 rounded-md w-1/2 mx-4 mt-8 py-2 text-gray-50 text-xs font-bold"
-            >
-              Send Message
-            </button>
-          </form>
+
+          <form
+      onSubmit={sendEmail}
+      className="form rounded-lg bg-white p-4 flex flex-col"
+    >
+      <label htmlFor="name" className="text-sm text-gray-600 mx-4">
+        Your Name
+      </label>
+      <input
+        type="text"
+        name="name"
+        value={formData.name}
+        onChange={handleChange}
+        className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+      />
+
+      <label htmlFor="email" className="text-sm text-gray-600 mx-4 mt-4">
+        Email
+      </label>
+      <input
+        type="text"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+      />
+
+      <label htmlFor="message" className="text-sm text-gray-600 mx-4 mt-4">
+        Message
+      </label>
+      <textarea
+        rows="4"
+        name="message"
+        value={formData.message}
+        onChange={handleChange}
+        className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+      ></textarea>
+
+      <button
+        type="submit"
+        className="bg-blue-500 rounded-md w-1/2 mx-4 mt-8 py-2 text-gray-50 text-xs font-bold hover:bg-blue-600 transition"
+      >
+        Send Message
+      </button>
+
+      {status && (
+        <p className="text-center text-sm text-gray-700 mt-4">{status}</p>
+      )}
+    </form>
         </div>
       </div>
     </section>
