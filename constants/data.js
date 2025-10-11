@@ -13,7 +13,7 @@ const userData = {
       imgUrl: "/naftalan.png",
     },
     {
-      title: "Younified",
+      title: "YOUnified",
       link: "https://younified.ca/",
       imgUrl: "/younified.png",
     },
@@ -23,19 +23,19 @@ const userData = {
       imgUrl: "/tlc.png",
     },
     {
-      title: "CovidRescue",
-      link: "https://covidrescue.co.in",
-      imgUrl: "/tlc.png",
+      title: "YOUnified mobile app",
+      link: "https://apps.apple.com/ca/app/younified/id1540819132",
+      imgUrl: "/younifiedMobile.png",
     },
     {
-      title: "Algochurn",
-      link: "https://algochurn.com",
-      imgUrl: "/tlc.png",
+      title: "Down Syndrome CA mobile app",
+      link: "https://apps.apple.com/us/app/down-syndrome-ca/id6557071443",
+      imgUrl: "/down.png",
     },
     {
-      title: "Playground",
-      link: "https://play.placeholdertech.in",
-      imgUrl: "/tlc.png",
+      title: "UI Component Library",
+      link: "https://ui-component-library-seven.vercel.app/",
+      imgUrl: "/uicomponent.png",
     },
     {
       title: "ToDo With Context API",
@@ -45,7 +45,7 @@ const userData = {
     {
       title: "TB3 Info",
       link: "https://dp-three.vercel.app/",
-      imgUrl: "/tlc.png",
+      imgUrl: "/tb3.png",
     },
   ],
   about: {
