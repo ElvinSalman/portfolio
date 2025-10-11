@@ -8,7 +8,9 @@ export default function Contact() {
     email: "",
     message: "",
   });
+
   const [status, setStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -16,15 +18,16 @@ export default function Contact() {
 
   const validateForm = () => {
     if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatus("Please fill out all fields ❗");
+      setStatus("❗ Please fill out all fields.");
       return false;
     }
-    // простая проверка email
+
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(formData.email)) {
-      setStatus("Invalid email format ⚠️");
+      setStatus("⚠️ Invalid email format.");
       return false;
     }
+
     return true;
   };
 
@@ -33,12 +36,15 @@ export default function Contact() {
 
     if (!validateForm()) return;
 
+    setIsLoading(true);     // Показать спиннер
+    setStatus("");          // Очистить предыдущие сообщения
+
     emailjs
       .send(
-        "service_50wgfvj", // ← замени на свой ID сервиса
-        "template_zhoexop", // ← шаблон EmailJS
+        "service_50wgfvj",
+        "template_zhoexop",
         formData,
-        "-Hccfm_2DUuYXUEoN" // ← твой публичный ключ из EmailJS
+        "-Hccfm_2DUuYXUEoN"
       )
       .then(
         () => {
@@ -49,7 +55,10 @@ export default function Contact() {
           console.error("EmailJS error:", error);
           setStatus("❌ Failed to send message. Try again later.");
         }
-      );
+      )
+      .finally(() => {
+        setIsLoading(false); // Скрыть спиннер
+      });
   };
 
   return (
@@ -203,51 +212,49 @@ export default function Contact() {
               </a>
             </div>
           </div>
-
-          <form
-            onSubmit={sendEmail}
-            className="form rounded-lg bg-white p-4 flex flex-col"
-          >
-            <label htmlFor="name" className="text-sm text-gray-600 mx-4">
-              Your Name
-            </label>
+          {/* Правая часть — форма */}
+          <form onSubmit={sendEmail} className="bg-white rounded-lg p-6 flex flex-col">
+            <label htmlFor="name" className="text-sm text-gray-600 mx-1">Your Name</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500"
             />
 
-            <label htmlFor="email" className="text-sm text-gray-600 mx-4 mt-4">
-              Email
-            </label>
+            <label htmlFor="email" className="text-sm text-gray-600 mx-1 mt-4">Email</label>
             <input
               type="text"
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500"
             />
 
-            <label htmlFor="message" className="text-sm text-gray-600 mx-4 mt-4">
-              Message
-            </label>
+            <label htmlFor="message" className="text-sm text-gray-600 mx-1 mt-4">Message</label>
             <textarea
-              rows="4"
               name="message"
+              rows="4"
               value={formData.message}
               onChange={handleChange}
-              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-            ></textarea>
+              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500"
+            />
 
+            {/* Кнопка отправки */}
             <button
               type="submit"
-              className="bg-blue-500 rounded-md w-1/2 mx-4 mt-8 py-2 text-gray-50 text-xs font-bold hover:bg-blue-600 transition"
+              disabled={isLoading}
+              className="bg-blue-500 text-white font-semibold text-sm rounded-md mt-6 py-2 hover:bg-blue-600 transition w-1/2 mx-auto flex items-center justify-center"
             >
-              Send Message
+              {isLoading ? (
+                <Spinner />
+              ) : (
+                "Send Message"
+              )}
             </button>
 
+            {/* Статус сообщения */}
             {status && (
               <p className="text-center text-sm text-gray-700 mt-4">{status}</p>
             )}
@@ -255,5 +262,39 @@ export default function Contact() {
         </div>
       </div>
     </section>
+  );
+}
+
+// Компонент контакта
+function ContactItem({ icon, text, onClick }) {
+  return (
+    <div
+      onClick={onClick}
+      className="flex items-center space-x-4 border border-[#02044A] hover:border-blue-500 p-3 rounded-md cursor-pointer transition"
+    >
+      <i className={`bi ${icon} text-blue-500 text-lg`}></i>
+      <span className="text-sm text-gray-100">{text}</span>
+    </div>
+  );
+}
+
+// Компонент спиннера
+function Spinner() {
+  return (
+    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+      <circle
+        className="opacity-25"
+        cx="12"
+        cy="12"
+        r="10"
+        stroke="currentColor"
+        strokeWidth="4"
+      ></circle>
+      <path
+        className="opacity-75"
+        fill="currentColor"
+        d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"
+      ></path>
+    </svg>
   );
 }
