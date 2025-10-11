@@ -5,7 +5,7 @@ export default function Experience() {
   return (
     <section className="bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
-        <h1 className=" text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
+        <h1 className="text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
           Experience
         </h1>
       </div>
@@ -16,7 +16,7 @@ export default function Experience() {
 
             // console.log(idx);
             return (
-              <React.Fragment key={idx}>
+              <div className="wow animate__animated animate__fadeInRight" key={idx}>
                 <ExperienceCard
                   title={exp.title}
                   desc={exp.desc}
@@ -32,14 +32,14 @@ export default function Experience() {
                     <div className="w-1 h-24 bg-gray-200 dark:bg-gray-500 rounded-full -mt-2"></div>
                   </div>
                 )}
-              </React.Fragment>
+              </div>
             )
           })}
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
-        <h1 className=" text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
+        <h1 className="text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
           Education
         </h1>
       </div>
@@ -50,7 +50,8 @@ export default function Experience() {
 
             // console.log(idx);
             return (
-              <React.Fragment key={idx}>
+              // <React.Fragment key={idx}>
+              <div className="wow animate__animated animate__fadeInRight" key={idx}>
                 <ExperienceCard
                   title={exp.title}
                   desc={exp.desc}
@@ -66,7 +67,8 @@ export default function Experience() {
                     <div className="w-1 h-24 bg-gray-200 dark:bg-gray-500 rounded-full -mt-2"></div>
                   </div>
                 )}
-              </React.Fragment>
+              </div>
+              //</React.Fragment>
             )
           })}
         </div>

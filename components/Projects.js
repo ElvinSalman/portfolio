@@ -12,24 +12,30 @@ export default function Projects() {
       {/* Grid starts here */}
       <div className="bg-[#F1F1F1] dark:bg-gray-900">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-20 pb-40">
-          {userData.projects.map((proj, idx) =>(
-            <ProjectCard
-              key={idx}
-              title={proj.title}
-              link={proj.link}
-              imgUrl={proj.imgUrl}
-              number={`${idx + 1}`}
-            />
-          ))}
+          {userData.projects.map((proj, idx) => {
+            // console.log(idx);
+            return (
+              <ProjectCard
+                key={idx}
+                someClass={(idx + 1) % 2 == 0 ? "wow animate_animated animate__fadeInRight" : "wow animate_animated animate__fadeInLeft"}
+                // className="wow animate_animated animate__shakeX"
+                title={proj.title}
+                link={proj.link}
+                imgUrl={proj.imgUrl}
+                number={`${idx + 1}`}
+              />
+            )
+          })}
         </div>
       </div>
     </section>
   );
 }
 
-const ProjectCard = ({ title, link, imgUrl, number }) => {
+const ProjectCard = ({ title, link, imgUrl, number, someClass }) => {
+  // console.log(someClass);
   return (
-    <a href={link} className="w-full block shadow-2xl">
+    <a href={link} className={someClass + " w-full block shadow-2xl"}>
       <div className="relative overflow-hidden">
         <div className="h-72 object-cover">
           <img

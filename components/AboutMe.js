@@ -67,7 +67,7 @@ export default function AboutMe() {
             </h1>
             <div className="mt-4 ml-4">
 
-              <div className="flex flex-row justify-start items-center ">
+              <div className="wow animate__animated animate__fadeInLeft flex flex-row justify-start items-center ">
                 <a
                   target="_blank"
                   href={userData.socialLinks.facebook}
@@ -80,7 +80,7 @@ export default function AboutMe() {
                   </div>
                 </a>
               </div>
-              <div className="flex flex-row justify-start items-center">
+              <div className="wow animate__animated animate__fadeInLeft flex flex-row justify-start items-center">
                 <a
                   target="_blank"
                   href={userData.socialLinks.twitter}
@@ -93,7 +93,7 @@ export default function AboutMe() {
                   </div>
                 </a>
               </div>
-              <div className="flex flex-row justify-start items-center">
+              <div className="wow animate__animated animate__fadeInLeft flex flex-row justify-start items-center">
                 <a
                   target="_blank"
                   href={userData.socialLinks.github}
@@ -106,7 +106,7 @@ export default function AboutMe() {
                   </div>
                 </a>
               </div>
-              <div className="flex flex-row justify-start items-center">
+              <div className="wow animate__animated animate__fadeInLeft flex flex-row justify-start items-center">
                 <a
                   target="_blank"
                   href={userData.socialLinks.linkedin}
@@ -119,7 +119,7 @@ export default function AboutMe() {
                   </div>
                 </a>
               </div>
-              <div className="flex flex-row justify-start items-center">
+              <div className="wow animate__animated animate__fadeInLeft flex flex-row justify-start items-center">
                 <a
                   target="_blank"
                   href={userData.socialLinks.instagram}

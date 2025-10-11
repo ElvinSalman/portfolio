@@ -4,8 +4,10 @@
 
 @import 'fonts.css';
 
+
 html,
 body {
+  background-color: white;
   padding: 0;
   margin: 0;
   font-family: 'Inter var', -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
