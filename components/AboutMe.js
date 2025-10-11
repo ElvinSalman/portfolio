@@ -149,63 +149,64 @@ export default function AboutMe() {
               Tech Stack
             </h1>
             <div className="flex flex-row flex-wrap mt-8">
+              {/* wow animate-animated animate__heartBeat  */}
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/react/react.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/javascript/javascript.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
 
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/typescript/typescript.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/css/css.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/main/topics/bootstrap/bootstrap.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
 
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/git/git.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/01ea2a586e5da744792d0ccfce2f68b861f29301/topics/docker/docker.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/main/topics/redux/redux.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/main/topics/jquery/jquery.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/main/topics/devops/devops.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/main/topics/kubernetes/kubernetes.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/java/java.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mysql/mysql.png"
-                className="h-20 w-20 mx-4 my-4"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
 
             </div>

@@ -128,7 +128,11 @@ export default function Navbar() {
         </div>
 
         <div className="space-x-4 flex flex-row items-center">
-          <a target="_blank" href={userData.socialLinks.instagram} x>
+          <a
+            target="_blank"
+            href={userData.socialLinks.instagram}
+            className="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors duration-200"
+          >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="16"
@@ -143,7 +147,7 @@ export default function Navbar() {
           <a
             target="_blank"
             href={userData.socialLinks.facebook}
-            className="text-base font-normal text-gray-600 dark:text-gray-300"
+            className="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -155,13 +159,11 @@ export default function Navbar() {
             >
               <path d="M22.675 0H1.325C.593 0 0 .593 0 1.326v21.348C0 23.407.593 24 1.325 24h11.495v-9.294H9.691v-3.622h3.129V8.413c0-3.1 1.893-4.788 4.659-4.788 1.325 0 2.463.099 2.794.143v3.24l-1.918.001c-1.505 0-1.797.716-1.797 1.765v2.313h3.587l-.467 3.622h-3.12V24h6.116C23.407 24 24 23.407 24 22.674V1.326C24 .593 23.407 0 22.675 0z" />
             </svg>
-
-
           </a>
           <a
             target="_blank"
             href={userData.socialLinks.linkedin}
-            className="text-base font-normal text-gray-600 dark:text-gray-300"
+            className="text-gray-600 dark:text-gray-300 hover:text-sky-600 transition-colors duration-200"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

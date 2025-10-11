@@ -1,4 +1,4 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import userData from "@constants/data";
 import emailjs from "emailjs-com";
 
@@ -121,6 +121,35 @@ export default function Contact() {
             </div>
 
             <div className="social-icons flex flex-row space-x-8">
+
+              <a
+                target="_blank"
+                href={userData.socialLinks.linkedin}
+                className="h-10 w-10 rounded-full hover:bg-blue-500 flex items-center justify-center cursor-pointer"
+              >
+                <svg
+                  width="24"
+                  height="24"
+                  className="text-gray-50"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M4.98 3.5C4.98 4.60457 4.08457 5.5 2.98 5.5C1.87543 5.5 0.98 4.60457 0.98 3.5C0.98 2.39543 1.87543 1.5 2.98 1.5C4.08457 1.5 4.98 2.39543 4.98 3.5Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M0.5 8H5.5V23H0.5V8Z"
+                    fill="currentColor"
+                  />
+                  <path
+                    d="M8.5 8H13.13V10.01H13.2C13.87 8.87 15.19 8 16.94 8C21.06 8 21.5 10.34 21.5 14.12V23H16.5V14.88C16.5 13.16 16.46 10.93 14.26 10.93C12.02 10.93 11.72 12.88 11.72 14.76V23H6.72V8H8.5Z"
+                    fill="currentColor"
+                  />
+                </svg>
+              </a>
+
               <a
                 target="_blank"
                 href={userData.socialLinks.facebook}
@@ -140,27 +169,7 @@ export default function Contact() {
                   />
                 </svg>
               </a>
-              <a
-                target="_blank"
-                href={userData.socialLinks.twitter}
-                className="h-10 w-10 rounded-full hover:bg-blue-500 flex items-center justify-center cursor-pointer"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  className="text-gray-50"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M8 3C9.10457 3 10 3.89543 10 5V8H16C17.1046 8 18 8.89543 18 10C18 11.1046 17.1046 12 16 12H10V14C10 15.6569 11.3431 17 13 17H16C17.1046 17 18 17.8954 18 19C18 20.1046 17.1046 21 16 21H13C9.13401 21 6 17.866 6 14V5C6 3.89543 6.89543 3 8 3Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
+
               <a
                 target="_blank"
                 href={userData.socialLinks.instagram}
@@ -196,53 +205,53 @@ export default function Contact() {
           </div>
 
           <form
-      onSubmit={sendEmail}
-      className="form rounded-lg bg-white p-4 flex flex-col"
-    >
-      <label htmlFor="name" className="text-sm text-gray-600 mx-4">
-        Your Name
-      </label>
-      <input
-        type="text"
-        name="name"
-        value={formData.name}
-        onChange={handleChange}
-        className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-      />
+            onSubmit={sendEmail}
+            className="form rounded-lg bg-white p-4 flex flex-col"
+          >
+            <label htmlFor="name" className="text-sm text-gray-600 mx-4">
+              Your Name
+            </label>
+            <input
+              type="text"
+              name="name"
+              value={formData.name}
+              onChange={handleChange}
+              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+            />
 
-      <label htmlFor="email" className="text-sm text-gray-600 mx-4 mt-4">
-        Email
-      </label>
-      <input
-        type="text"
-        name="email"
-        value={formData.email}
-        onChange={handleChange}
-        className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-      />
+            <label htmlFor="email" className="text-sm text-gray-600 mx-4 mt-4">
+              Email
+            </label>
+            <input
+              type="text"
+              name="email"
+              value={formData.email}
+              onChange={handleChange}
+              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+            />
 
-      <label htmlFor="message" className="text-sm text-gray-600 mx-4 mt-4">
-        Message
-      </label>
-      <textarea
-        rows="4"
-        name="message"
-        value={formData.message}
-        onChange={handleChange}
-        className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
-      ></textarea>
+            <label htmlFor="message" className="text-sm text-gray-600 mx-4 mt-4">
+              Message
+            </label>
+            <textarea
+              rows="4"
+              name="message"
+              value={formData.message}
+              onChange={handleChange}
+              className="font-light rounded-md border focus:outline-none py-2 mt-2 px-1 mx-4 focus:ring-2 focus:border-none ring-blue-500"
+            ></textarea>
 
-      <button
-        type="submit"
-        className="bg-blue-500 rounded-md w-1/2 mx-4 mt-8 py-2 text-gray-50 text-xs font-bold hover:bg-blue-600 transition"
-      >
-        Send Message
-      </button>
+            <button
+              type="submit"
+              className="bg-blue-500 rounded-md w-1/2 mx-4 mt-8 py-2 text-gray-50 text-xs font-bold hover:bg-blue-600 transition"
+            >
+              Send Message
+            </button>
 
-      {status && (
-        <p className="text-center text-sm text-gray-700 mt-4">{status}</p>
-      )}
-    </form>
+            {status && (
+              <p className="text-center text-sm text-gray-700 mt-4">{status}</p>
+            )}
+          </form>
         </div>
       </div>
     </section>
