@@ -189,6 +189,11 @@ export default function AboutMe() {
                 className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
+                src="https://raw.githubusercontent.com/github/explore/main/topics/nextjs/nextjs.png"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
+                alt="Next.js"
+              />
+              <img
                 src="https://raw.githubusercontent.com/github/explore/main/topics/jquery/jquery.png"
                 className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
