@@ -164,6 +164,21 @@ export default function AboutMe() {
                 className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
               <img
+                src="https://vitejs.dev/logo.svg"
+                alt="Vite"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
+              />
+              <img
+                src="https://assets.vercel.com/image/upload/v1662130559/front/favicon/vercel/180x180.png"
+                alt="Vercel"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
+              />
+              <img
+                src="https://raw.githubusercontent.com/github/explore/master/topics/tailwind/tailwind.png"
+                alt="Tailwind CSS"
+                className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
+              />
+              <img
                 src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/html/html.png"
                 className="h-20 w-20 mx-4 my-4 cursor-pointer transform transition-transform duration-300 hover:scale-125"
               />
