@@ -1,5 +1,5 @@
-import React from "react";
-import { RoughNotation, RoughNotationGroup } from "react-rough-notation";
+import React, { useState, useEffect } from "react";
+import { RoughNotationGroup } from "react-rough-notation";
 import { RainbowHighlight } from "./RainbowHighlight";
 import userData from "@constants/data";
 import { useTranslation } from "react-i18next";
@@ -7,19 +7,28 @@ import { useTranslation } from "react-i18next";
 
 export default function Hero() {
   const colors = ["#F59E0B", "#84CC16", "#10B981", "#3B82F6"];
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
+  const [show, setShow] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => setShow(true), 500); // запускаем анимацию через 0.5 секунды
+  }, []);
+
+  // useEffect(() => {
+
+  // }, []);
+
+  if (!ready) return <h1>Loading...</h1>; // ✅ ждём, пока переводы загрузятся
 
   return (
     <div className="flex flex-row justify-center items-start overflow-hidden">
       {/* Text container */}
 
-
       <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20">
-        <RoughNotationGroup show={true}>
+        <RoughNotationGroup show={show}>
           <RainbowHighlight color={colors[0]}>
             <h1 className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
               Frontend,
-              <h1>{t("hello")}</h1>
             </h1>
           </RainbowHighlight>
           <RainbowHighlight color={colors[1]}>
@@ -33,8 +42,8 @@ export default function Hero() {
             </h1>
           </RainbowHighlight>
           <RainbowHighlight color={colors[3]}>
-            <h1 className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
-              Developer
+            <h1 suppressHydrationWarning className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
+              {t("developer")}
             </h1>
           </RainbowHighlight>
         </RoughNotationGroup>
@@ -58,7 +67,7 @@ export default function Hero() {
                   d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"
                 />
               </svg>
-              <p className="font-mono">That's me</p>
+              <p suppressHydrationWarning className="font-mono">{t("thatsme")}</p>
             </div>
           </div>
         </div>

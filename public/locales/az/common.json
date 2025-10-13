@@ -1,8 +1,17 @@
 {
-    "hello": "Salam dünya!",
-    "about": "Haqqımda",
-    "projects": "Layihələr",
-    "experience": "Təcrübə",
-    "contact": "Əlaqə"
-  }
-  
+  "name":"Elvin Salmanov",
+  "designation":"Frontend Proqramçı",
+  "developer":"Proqramçı",
+  "about": "Haqqımda",
+  "projects": "Layihələr",
+  "experience": "Təcrübə",
+  "contact": "Əlaqə",
+  "thatsme": "Bu mənəm",
+  "favouriteProjects": "Sevimli layihələr",
+  "viewAll": "Hamsına baxmaq",
+  "latestCode": "Son kod",
+  "viewGitHub": "View GitHub",
+  "viewRepository":"Repozitoriyanı aç",
+  "allRightsReserved":"Bütün hüquqlar qorunur",
+  "developedBy":"Hazırlayıb"
+}

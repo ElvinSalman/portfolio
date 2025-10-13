@@ -6,6 +6,9 @@ import userData from "@constants/data";
 
 import LanguageSelect from "./LanguageSelect";
 
+import { useTranslation } from "react-i18next";
+
+
 export default function Navbar() {
   const router = useRouter();
   console.log(router.asPath);
@@ -16,40 +19,45 @@ export default function Navbar() {
     setMounted(true);
   }, []);
 
-    // 🩹 Предотвращаем hydration error
-    if (!mounted) {
-      return (
-        <div className="max-w-6xl mx-auto px-4 py-10 md:py-20">
-          <div className="flex justify-between items-center">
-            <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded" />
-            <div className="h-6 w-24 bg-gray-200 dark:bg-gray-700 rounded" />
-          </div>
+  const { t, ready } = useTranslation("common");
+
+  if (!ready) return <h1>Loading...</h1>; // ✅ ждём, пока переводы загрузятся
+
+  // 🩹 Предотвращаем hydration error
+  if (!mounted) {
+    return (
+      <div className="max-w-6xl mx-auto px-4 py-10 md:py-20">
+        <div className="flex justify-between items-center">
+          <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded" />
+          <div className="h-6 w-24 bg-gray-200 dark:bg-gray-700 rounded" />
         </div>
-      );
-    }
+      </div>
+    );
+  }
 
   return (
     <div className="max-w-6xl  mx-auto px-4 py-10 md:py-20">
       <div className="flex  md:flex-row justify-between items-center">
         <div className="flex flex-col">
           <Link href="/">
-            <h1 className="font-semibold text-xl dark:text-gray-100">
-              {userData.name}
+            <h1 suppressHydrationWarning className="font-semibold text-xl dark:text-gray-100">
+              {t("name")}
             </h1>
-            <p className="text-base font-light text-gray-500 dark:text-gray-300">
-              {userData.designation}
+            <p suppressHydrationWarning className="text-base font-light text-gray-500 dark:text-gray-300">
+              {t("designation")}
             </p>
           </Link>
         </div>
-        <div className="space-x-8 hidden md:block">
+        <div suppressHydrationWarning className="space-x-8 hidden md:block">
           <Link
+            
             href="/about"
             className={`text-base  ${router.asPath === "/about"
               ? "text-gray-800 font-bold dark:text-gray-400"
               : "text-gray-600 dark:text-gray-300 font-normal "
               }`}
           >
-            About{" "}
+            {t("about")}{" "}
             {router.asPath === "/about" && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -67,13 +75,14 @@ export default function Navbar() {
             )}
           </Link>
           <Link
+            
             href="/projects"
             className={`text-base  ${router.asPath === "/projects"
               ? "text-gray-800 font-bold dark:text-gray-400"
               : "text-gray-600 dark:text-gray-300 font-normal "
               }`}
           >
-            Projects
+            {t("projects")}
             {router.asPath === "/projects" && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -91,13 +100,14 @@ export default function Navbar() {
             )}
           </Link>
           <Link
+            
             href="/experience"
             className={`text-base  ${router.asPath === "/experience"
               ? "text-gray-800 font-bold dark:text-gray-400"
               : "text-gray-600 dark:text-gray-300 font-normal "
               }`}
           >
-            Experience{" "}
+            {t("experience")}{" "}
             {router.asPath === "/experience" && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -115,13 +125,14 @@ export default function Navbar() {
             )}
           </Link>
           <Link
+            
             href="/contact"
             className={`text-base  ${router.asPath === "/contact"
               ? "text-gray-800 font-bold dark:text-gray-400"
               : "text-gray-600 dark:text-gray-300 font-normal "
               }`}
           >
-            Contact
+            {t("contact")}
             {router.asPath === "/contact" && (
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -228,30 +239,30 @@ export default function Navbar() {
 
         </div>
       </div>
-      <div className="space-x-8 block md:hidden mt-4">
+      <div suppressHydrationWarning className="space-x-8 block md:hidden mt-4">
         <Link
           href="/about"
           className="text-base font-normal text-gray-600 dark:text-gray-300"
         >
-          About
+          {t("about")}
         </Link>
         <Link
           href="/projects"
           className="text-base font-normal text-gray-600 dark:text-gray-300"
         >
-          Projects
+          {t("projects")}
         </Link>
         <Link
           href="/experience"
           className="text-base font-normal text-gray-600 dark:text-gray-300"
         >
-          Experience
+          {t("experience")}
         </Link>
         <Link
           href="/contact"
           className="text-base font-normal text-gray-600 dark:text-gray-300"
         >
-          Contact
+          {t("contact")}
         </Link>
       </div>
     </div>

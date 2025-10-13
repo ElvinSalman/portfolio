@@ -1,7 +1,17 @@
 {
-  "hello": "Привет, мир!",
+  "name":"Эльвин Салманов",
+  "designation":"Разработчик Frontend",
+  "developer":"Разработчик",
   "about": "Обо мне",
   "projects": "Проекты",
   "experience": "Опыт",
-  "contact": "Контакты"
+  "contact": "Контакты",
+  "thatsme": "Это я",
+  "favouriteProjects": "Любимые проекты",
+  "viewAll": "Посмотреть все",
+    "latestCode":"Последний код",
+  "viewGitHub":"Посмотреть GitHub",
+  "viewRepository":"Посмотреть репозиторий",
+  "allRightsReserved":"Все права защищены",
+  "developedBy":"Разработал"
 }

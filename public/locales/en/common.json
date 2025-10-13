@@ -1,7 +1,17 @@
 {
-  "hello": "Hello world!",
+  "name": "Elvin Salmanov",
+  "designation": "Frontend Developer",
+  "developer":"Developer",
   "about": "About",
   "projects": "Projects",
   "experience": "Experience",
-  "contact": "Contact"
+  "contact": "Contact",
+  "thatsme": "That's me",
+  "favouriteProjects": "Favourite Projects",
+  "viewAll": "View all",
+  "latestCode": "Latest Code",
+  "viewGitHub": "GitHub-a baxmaq",
+  "viewRepository":"View Repository",
+  "allRightsReserved": "All Rights Reserved",
+  "developedBy": "Developed by"
 }
