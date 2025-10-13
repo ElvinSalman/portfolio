@@ -33,6 +33,11 @@ const userData = {
       imgUrl: "/down.png",
     },
     {
+      title: "Admin Dashboard",
+      link: "https://elvin-dashboard-338l.vercel.app/",
+      imgUrl: "/eadmin.png",
+    },
+    {
       title: "UI Component Library",
       link: "https://ui-component-library-seven.vercel.app/",
       imgUrl: "/uicomponent.png",
