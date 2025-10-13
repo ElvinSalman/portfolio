@@ -69,7 +69,7 @@ const userData = {
     {
       title: "Master's in Computer Science",
       company: "Baku State University",
-      year: "2021 - 2024",
+      year: "2021 - 2023",
       companyLink: "https://bsu.edu.az/en/welcome_to_baku_state_university",
       desc: "Earned a Master’s degree with distinction, maintaining an 85/100 average. Recognized for consistent performance, analytical thinking, and a passion for solving complex technical problems.",
     },
