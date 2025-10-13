@@ -7,7 +7,10 @@ import Hero from "../components/Hero";
 import getLatestRepos from "@lib/getLatestRepos";
 import userData from "@constants/data";
 
+
+
 export default function Home({ repositories }) {
+
   return (
     <ContainerBlock
       title="Elvin Salmanov - Developer, Writer, Creator"

@@ -4,6 +4,8 @@ import { useTheme } from "next-themes";
 import { useRouter } from "next/router";
 import userData from "@constants/data";
 
+import LanguageSelect from "./LanguageSelect";
+
 export default function Navbar() {
   const router = useRouter();
   console.log(router.asPath);
@@ -13,6 +15,18 @@ export default function Navbar() {
   useEffect(() => {
     setMounted(true);
   }, []);
+
+    // 🩹 Предотвращаем hydration error
+    if (!mounted) {
+      return (
+        <div className="max-w-6xl mx-auto px-4 py-10 md:py-20">
+          <div className="flex justify-between items-center">
+            <div className="h-6 w-32 bg-gray-200 dark:bg-gray-700 rounded" />
+            <div className="h-6 w-24 bg-gray-200 dark:bg-gray-700 rounded" />
+          </div>
+        </div>
+      );
+    }
 
   return (
     <div className="max-w-6xl  mx-auto px-4 py-10 md:py-20">
@@ -27,7 +41,6 @@ export default function Navbar() {
             </p>
           </Link>
         </div>
-
         <div className="space-x-8 hidden md:block">
           <Link
             href="/about"
@@ -208,6 +221,11 @@ export default function Navbar() {
               </svg>
             )}
           </button>
+
+
+          <LanguageSelect />
+
+
         </div>
       </div>
       <div className="space-x-8 block md:hidden mt-4">
@@ -239,3 +257,5 @@ export default function Navbar() {
     </div>
   );
 }
+
+
