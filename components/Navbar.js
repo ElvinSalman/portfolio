@@ -261,7 +261,7 @@ export default function Navbar() {
             </div>
 
             {/* Language select */}
-            <LanguageSelect />
+            <LanguageSelect onChange={changeLanguage} current={i18n.language} />
           </div>
         </div>
       </div>
