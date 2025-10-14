@@ -100,6 +100,7 @@ export default function LanguageSelect() {
             boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
             zIndex: 10,
             animation: "fadeIn 0.2s ease",
+            color: 'rgba(0,0,0,0.8)'
           }}
         >
           {LANGUAGES.map((lang) => (
