@@ -63,7 +63,7 @@ export default function LanguageSelect() {
           alignItems: "center",
           justifyContent: "space-between",
           gap: "8px",
-          width: "150px",
+          width: "170px",
           height: "40px",
           border: "1px solid #ddd",
           borderRadius: "12px",
@@ -72,6 +72,7 @@ export default function LanguageSelect() {
           cursor: "pointer",
           boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
           fontSize: "14px",
+          color: 'rgba(0,0,0,0.8)'
         }}
       >
         <ReactCountryFlag
@@ -89,7 +90,7 @@ export default function LanguageSelect() {
             position: "absolute",
             top: "110%",
             left: 0,
-            width: "150px",
+            width: "170px",
             background: "#fff",
             border: "1px solid #eee",
             borderRadius: "12px",
