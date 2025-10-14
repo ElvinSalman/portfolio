@@ -14,28 +14,42 @@ const LANGUAGES = [
 
 export default function LanguageSelect() {
   const router = useRouter();
-  const { pathname, asPath, query } = router;
+  const { pathname, query, asPath, locale } = router;
 
-  const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [open, setOpen] = useState(false);
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
 
+  // После монтирования устанавливаем язык
   useEffect(() => {
     setMounted(true);
-
-    // После монтирования определяем язык
-    const lang = LANGUAGES.find((l) => l.code === router.locale) || LANGUAGES[0];
+    const savedLang = localStorage.getItem("lang") || locale;
+    const lang = LANGUAGES.find((l) => l.code === savedLang) || LANGUAGES[0];
     setCurrentLang(lang);
-  }, [router.locale]);
+
+    if (savedLang && savedLang !== i18n.language) {
+      i18n.changeLanguage(savedLang);
+    }
+  }, [locale]);
 
   const changeLanguage = (code) => {
+    const lang = LANGUAGES.find((l) => l.code === code);
+    if (!lang) return;
+
+    // Меняем язык в i18next
     i18n.changeLanguage(code);
+
+    // Сохраняем выбор в localStorage
     localStorage.setItem("lang", code);
+
+    // Меняем локаль Next.js маршрута
     router.push({ pathname, query }, asPath, { locale: code });
+
+    // Закрываем выпадающее меню
+    setCurrentLang(lang);
     setOpen(false);
   };
 
-  // ✅ Пока компонент не смонтировался, не рендерим вообще ничего
   if (!mounted) return null;
 
   return (

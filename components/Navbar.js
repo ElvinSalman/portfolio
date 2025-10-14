@@ -10,13 +10,16 @@ export default function Navbar() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { t } = useTranslation("common");
+  const { t, i18n, ready } = useTranslation("common");
 
-  useEffect(() => {
-    setMounted(true);
-  }, []);
+useEffect(() => setMounted(true), []);
 
-  if (!mounted) return null; // 🔹 SSR-safe
+  const changeLanguage = (lng) => {
+    i18n.changeLanguage(lng);
+    if (typeof window !== "undefined") localStorage.setItem("lang", lng);
+  };
+
+  if (!ready || !mounted) return <div>Loading...</div>;
 
 
   return (
@@ -131,7 +134,7 @@ export default function Navbar() {
           </button>
 
 
-          <LanguageSelect />
+          <LanguageSelect onChange={changeLanguage} current={i18n.language} />
 
 
         </div>
