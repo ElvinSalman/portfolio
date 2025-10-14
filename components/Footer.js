@@ -34,7 +34,7 @@ export default function Footer() {
             <a
               target="_blank"
               href={userData.socialLinks.instagram}
-              className="text-gray-600 dark:text-gray-300 hover:text-pink-500 transition-colors duration-200"
+              className="text-gray-600 dark:text-gray-300 hover:text-pink-500 dark:hover:text-pink-500 transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +50,7 @@ export default function Footer() {
             <a
               target="_blank"
               href={userData.socialLinks.facebook}
-              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 transition-colors duration-200"
+              className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-600 transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -66,7 +66,7 @@ export default function Footer() {
             <a
               target="_blank"
               href={userData.socialLinks.linkedin}
-              className="text-gray-600 dark:text-gray-300 hover:text-sky-600 transition-colors duration-200"
+              className="text-gray-600 dark:text-gray-300 hover:text-sky-600 dark:hover:text-sky-600 transition-colors duration-200"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
