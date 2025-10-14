@@ -16,8 +16,8 @@ export default function Home({ repositories }) {
       description="A modern portfolio showcasing my journey as a software developer, featuring my projects, experience, and passion for creating innovative web solutions."
     >
       {/* <Hero /> */}
-      {/* <FavouriteProjects /> */}
-      <LatestCode repositories={repositories} />
+      <FavouriteProjects />
+      {/* <LatestCode repositories={repositories} /> */}
     </ContainerBlock>
   );
 }
