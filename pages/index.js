@@ -1,7 +1,7 @@
 import ContainerBlock from "../components/ContainerBlock";
+import Hero from "../components/Hero";
 import FavouriteProjects from "../components/FavouriteProjects";
 import LatestCode from "../components/LatestCode";
-import Hero from "../components/Hero";
 import getLatestRepos from "@lib/getLatestRepos";
 import userData from "@constants/data";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
@@ -10,7 +10,7 @@ export default function Home({ repositories }) {
   return (
     <ContainerBlock
       title="Elvin Salmanov - Developer, Writer, Creator"
-      description="A modern portfolio showcasing my journey as a software developer."
+      description="A modern portfolio showcasing my journey as a software developer, featuring my projects, experience, and passion for creating innovative web solutions."
     >
       <Hero />
       <FavouriteProjects />
@@ -19,7 +19,6 @@ export default function Home({ repositories }) {
   );
 }
 
-// Подгружаем переводы на этапе сборки
 export async function getStaticProps({ locale }) {
   const token = process.env.GITHUB_AUTH_TOKEN;
   const repositories = await getLatestRepos(userData, token);
@@ -27,7 +26,7 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       repositories,
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common"])), // подгрузка переводов
     },
     revalidate: 60,
   };

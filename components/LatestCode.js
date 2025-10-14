@@ -8,9 +8,9 @@ import { useTranslation } from "react-i18next";
 export default function LatestCode({ repositories }) {
   const [repos, setRepos] = useState(repositories);
 
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
 
-
+if (!ready) return null;
   return (
     <section className="bg-[#E5E5E5] -mt-40 dark:bg-gray-900 pb-40">
       <div className="max-w-6xl mx-auto">
@@ -56,7 +56,8 @@ export default function LatestCode({ repositories }) {
 }
 
 const GithubRepoCard = ({ latestRepo }) => {
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
+  if (!ready) return null;
   return (
     <div className="github-repo">
       <h1 className="font-semibold text-xl dark:text-gray-200 text-gray-700">

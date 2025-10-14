@@ -4,7 +4,8 @@ import { useTranslation } from "react-i18next";
 
 
 export default function FavouriteProjects() {
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
+  if (!ready) return null;
   return (
     <div className="bg-[#E5E5E5] -mt-40 dark:bg-gray-900">
       <div className="max-w-6xl mx-auto">

@@ -7,9 +7,9 @@ import { useTranslation } from "react-i18next";
 
 export default function Hero() {
   const colors = ["#F59E0B", "#84CC16", "#10B981", "#3B82F6"];
-  const { t, i18n } = useTranslation("common");
+  const { t, ready, i18n } = useTranslation("common");
   const [show, setShow] = useState(false);
-
+if (!ready) return null;
 
   // useEffect(() => {
   //   document.documentElement.lang = i18n.language;
