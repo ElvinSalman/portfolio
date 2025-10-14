@@ -88,6 +88,7 @@ export default function LanguageSelect() {
         <ul
           style={{
             position: "absolute",
+            overflow:'hidden',
             top: "110%",
             left: 0,
             width: "170px",
