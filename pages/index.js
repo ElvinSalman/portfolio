@@ -9,7 +9,6 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export default function Home({ repositories }) {
   return (
     <ContainerBlock
-      suppressHydrationWarning
       title="Elvin Salmanov - Developer, Writer, Creator"
       description="A modern portfolio showcasing my journey as a software developer, featuring my projects, experience, and passion for creating innovative web solutions."
     >

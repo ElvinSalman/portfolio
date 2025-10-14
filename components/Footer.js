@@ -6,7 +6,7 @@ import { useTranslation } from "react-i18next";
 
 export default function Footer() {
   const { t, ready } = useTranslation("common");
-if (!ready) return null;
+  if (!ready) return null;
   return (
     <div className="bg-[#F1F1F1] dark:bg-gray-900">
       <div className="max-w-6xl  mx-auto px-4 py-10 md:py-20">

@@ -4,7 +4,9 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Globe } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
-import i18n from "i18next";
+// import i18n from "i18next";
+
+import i18n from "../lib/i18n";
 
 const LANGUAGES = [
   { code: "en", label: "English", countryCode: "GB" },
