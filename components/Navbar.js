@@ -10,13 +10,13 @@ export default function Navbar() {
   const router = useRouter();
   const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = useState(false);
-  const { t, ready } = useTranslation("common");
+  const { t } = useTranslation("common");
 
   useEffect(() => {
     setMounted(true);
   }, []);
 
-  if (!mounted || !ready) return null; // 🔹 SSR-safe
+  if (!mounted) return null; // 🔹 SSR-safe
 
 
   return (
