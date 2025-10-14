@@ -15,8 +15,8 @@ export default function Home({ repositories }) {
       title="Elvin Salmanov - Developer, Writer, Creator"
       description="A modern portfolio showcasing my journey as a software developer, featuring my projects, experience, and passion for creating innovative web solutions."
     >
-      {/* <Hero /> */}
-      <FavouriteProjects />
+      <Hero />
+      {/* <FavouriteProjects /> */}
       {/* <LatestCode repositories={repositories} /> */}
     </ContainerBlock>
   );
