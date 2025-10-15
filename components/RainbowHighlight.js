@@ -7,7 +7,7 @@ export const RainbowHighlight = ({ color, children, show }) => {
     .map(child => (typeof child === "string" ? child : child.props?.children))
     .join("");
 
-  const animationDuration = Math.floor(30 * textContent.length);
+  const animationDuration = Math.floor(30 * children.length);
   return (
     <RoughNotation
       type="highlight"
