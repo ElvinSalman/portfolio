@@ -1,17 +1,93 @@
 {
-  "name":"Elvin Salmanov",
-  "designation":"Frontend Proqramçı",
-  "developer":"Proqramçı",
+  "name": "Elvin Salmanov",
+  "designation": "Frontend Proqramçı",
+  "developer": "Proqramçı",
   "about": "Haqqımda",
   "projects": "Layihələr",
   "experience": "Təcrübə",
+  "education": "Təhsil",
   "contact": "Əlaqə",
   "thatsme": "Bu mənəm",
   "favouriteProjects": "Sevimli layihələr",
   "viewAll": "Hamsına baxmaq",
   "latestCode": "Son kod",
   "viewGitHub": "GitHub-a baxmaq",
-  "viewRepository":"Repozitoriyanı aç",
-  "allRightsReserved":"Bütün hüquqlar qorunur",
-  "developedBy":"Hazırlayıb"
+  "viewRepository": "Repozitoriyanı aç",
+  "allRightsReserved": "Bütün hüquqlar qorunur",
+  "developedBy": "Hazırlayıb",
+  "aboutMe": "Mənim haqqımda.",
+  "aboutTitle": "Mən təmiz və faydalı veb təcrübələr yaratmağa həvəsli bir frontend proqramçısıyam",
+  "currentlyWorking": "Hal-hazırda işlədiyim yer",
+  "currentPosition": "Azerbaijan Airlines şirkətində proqram mühəndisi vəzifəsində",
+  "aboutContact1": "Hər hansı bir kömək və ya sorğu üçün",
+  "mail": "məktub",
+  "aboutContact2": "göndərin və mən mütləq cavab verəcəyəm. And içirəm.",
+  "aboutJobTitle": "İş imkanları",
+  "aboutJob1": "Hal-hazırda iş axtarıram. Əgər mənim uyğun namizəd olduğumu düşünürsünüzsə, mənim",
+  "aboutJob2": "və sizinlə işləməkdən məmnun olaram.",
+  "socialLinks": "Sosial şəbəkələr",
+  "about1": "React, React Native və müasir JavaScript üzrə ixtisaslaşmış orta səviyyəli proqramçı.",
+  "about2": "Təmiz, miqyaslana bilən veb və mobil tətbiqlər yaradır və rahat istifadəçi təcrübəsinə diqqət yetirir.",
+  "about3": "Fərqli layihələrdə UI arxitekturası, performansın optimallaşdırılması və API inteqrasiyası sahəsində təcrübəm var.",
+  "about4": "Daim öyrənirəm, inkişaf edirəm və yol boyu mürəkkəb problemləri həll edirəm.",
+  "techStack": "Texnologiyalar",
+  "experienceArr": [
+    {
+      "title": "Proqram mühəndisi",
+      "company": "Azerbaijan Airlines",
+      "year": "2022 - İNDİYƏDƏK",
+      "companyLink": "https://www.azal.az/en/",
+      "desc": "Heyət üzvləri üçün React Native əsaslı mobil tətbiqlər hazırlayaraq iş axınlarını sadələşdirdim və kommunikasiya prosesini yaxşılaşdırdım. Əsas əməliyyat proseslərini avtomatlaşdırdım və səmərəliliyi artırmaq üçün JavaScript əlavələri yaratdım. Server sistemlərini dəstəklədim və azal.az ilə daxili serverlər arasında sabit əlaqə təmin etdim. Aviaşirkətin kritik proqram təminatını dəstəklədim, serverlərin AzInTelecom-a köçürülməsinə rəhbərlik etdim və yeni IT sistemləri inteqrasiya etdim. Sistem monitorinqi üçün Grafana və Prometheus tətbiq etdim və fasiləsiz iş üçün ətraflı IT sənədləri hazırladım."
+    },
+    {
+      "title": "React.js və React Native tərtibatçısı",
+      "company": "Union Strategies Inc",
+      "year": "2024 - 2025",
+      "companyLink": "https://younified.ca/",
+      "desc": "React Native ilə 'Younified' mobil tətbiqini (iOS və Android) hazırladım — burada paylaşım lentləri, bəyənmələr, şərhlər, xəbərlər, sorğular, bildirişlər və profil redaktəsi funksiyaları mövcuddur. 'Down Syndrome CA' tətbiqinin əsas funksionallığı və interfeys dizaynında iştirak etdim. Tətbiqin performansını optimallaşdırdım, API inteqrasiyasını həyata keçirdim və Younified.ca saytının istifadəçi təcrübəsini yaxşılaşdırdım."
+    },
+    {
+      "title": "Frontend tərtibatçısı",
+      "company": "Developia Engineering Academy",
+      "year": "2019 - 2021",
+      "companyLink": "https://developia.az/edu/",
+      "desc": "React ilə müasir, adaptiv interfeyslər hazırlayaraq mürəkkəb ideyaları rahat istifadəçi təcrübəsinə çevirdim. Həmçinin JavaScript dərsləri keçərək tələbələrə dilin əsas məntiqini və ən yaxşı təcrübələrini öyrətdim. HTML, CSS, JS və jQuery ilə işləyərək hər zaman təmiz və səmərəli kod yazmağa çalışdım."
+    },
+    {
+      "title": "React tərtibatçısı",
+      "company": "Gadimlie Studio",
+      "year": "2018 - 2019",
+      "companyLink": "https://www.instagram.com/gadimlie.studio/",
+      "desc": "naftalanproducts.com saytında işləyərək əsas səhifələri hazırladım, API inteqrasiya etdim, autentifikasiya, çoxdilli dəstək və səbət funksionallığını tətbiq etdim. SEO göstəricilərini yaxşılaşdırdım və saytın ümumi performansını optimallaşdırdım."
+    }
+  ],
+  "educationArr": [
+    {
+      "title": "Kompüter elmləri üzrə magistr",
+      "company": "Bakı Dövlət Universiteti",
+      "year": "2021 - 2023",
+      "companyLink": "https://bsu.edu.az/en/welcome_to_baku_state_university",
+      "desc": "Magistr təhsilini fərqlənmə ilə başa vurmuşam, orta göstəricim 85/100 olub. Davamlı uğurlu nəticələrə, analitik düşüncəyə və mürəkkəb texniki problemlərin həllinə marağa görə təltif olunmuşam."
+    },
+    {
+      "title": "Kompüter elmləri üzrə bakalavr",
+      "company": "Azərbaycan Respublikası Milli Aviasiya Akademiyası",
+      "year": "2018 - 2021",
+      "companyLink": "https://naa.edu.az/",
+      "desc": "Kompüter elmləri üzrə fərqlənmə diplomu ilə məzun olmuşam, orta bal 94/100. Qrup daxilində liderlik və əməkdaşlıq bacarıqlarıma görə tanınmışam."
+    },
+    {
+      "title": "Orta məktəb",
+      "company": "17 saylı orta məktəb, Bakı",
+      "year": "2014 - 2017",
+      "companyLink": "https://bakimektebleri.edu.az/17/",
+      "desc": "Fizika, kimya və riyaziyyat fənlərinə fokuslanmışam — əla nəticələrlə məzun olmuşam. Riyaziyyat və fizika olimpiadalarında fəal iştirak etmiş, Bakının Xətai rayonunda birinci yerlər qazanmışam."
+    }
+  ],
+  "contact1": "Mənimlə əlaqə saxlayın — birlikdə müzakirə edək.",
+  "contact2": "Formanı doldurun, ən qısa zamanda sizə cavab verəcəyəm.",
+  "contactAddress": "Bakı, Azərbaycan",
+  "formName": "Adınız",
+  "formMessage": "Mesajınız",
+  "formSubmit":"Mesajı göndərmək"
 }

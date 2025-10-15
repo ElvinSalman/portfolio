@@ -1,12 +1,18 @@
 import React from "react";
 import userData from "@constants/data";
 
+import { useTranslation } from "react-i18next";
+
+
 export default function AboutMe() {
+  const { t, ready } = useTranslation("common");
+  if (!ready) return null;
+
   return (
     <section className="bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
         <h1 className=" text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
-          About Me.
+          {t("aboutMe")}
         </h1>
       </div>
       <div className="bg-[#F1F1F1] -mt-10 dark:bg-gray-900">
@@ -15,12 +21,12 @@ export default function AboutMe() {
             className="leading-loose text-2xl md:text-4xl font-semibold  mx-4"
             style={{ lineHeight: "3rem" }}
           >
-            {userData.about.title}. Currently working at{" "}
+            {t("aboutTitle")}. {t("")}{" "}
             <a
               className="bg-red-500 rounded-md px-2 py-1 text-white"
               href={userData.about.currentPositionUrl}
             >
-              {userData.about.currentPosition} ✈️
+              {t("currentPosition")} ✈️
             </a>
           </p>
         </div>
@@ -31,26 +37,25 @@ export default function AboutMe() {
           <div className="inline-flex flex-col">
             <div>
               <h1 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
-                Contact
+                {t("contact")}
               </h1>
               <p className="text-lg text-gray-500 mt-4 dark:text-gray-300">
-                For any sort help / enquiry, shoot a{" "}
+                {t("aboutContact1")}{" "}
                 <a
                   href={`mailto:${userData.email}`}
                   className="text-gray-800 border-b-2 border-gray-800 dark:border-gray-300 font-bold dark:text-gray-300"
                 >
-                  mail
+                  {t("mail")}
                 </a>{" "}
-                and I'll get back. I swear.
+                {t("aboutContact2")}
               </p>
             </div>
             <div className="mt-8">
               <h1 className="text-xl font-semibold text-gray-700 dark:text-gray-200">
-                Job Opportunities
+                {t("aboutJobTitle")}
               </h1>
               <p className="text-lg text-gray-500 mt-4 dark:text-gray-300">
-                I'm looking for a job currently, If you see me as a good fit,
-                check my{" "}
+                {t("aboutJob1")}{" "}
                 <a
                   href={userData.resumeUrl}
                   target="__blank"
@@ -58,12 +63,12 @@ export default function AboutMe() {
                 >
                   CV
                 </a>{" "}
-                and I'd love to work for you.
+                {t("aboutJob2")}
               </p>
             </div>
             {/* Social Links */}
             <h1 className="text-xl font-semibold text-gray-700 mt-8 dark:text-gray-200">
-              Social Links
+              {t("socialLinks")}
             </h1>
             <div className="mt-4 ml-4">
 
@@ -136,17 +141,38 @@ export default function AboutMe() {
           </div>
           {/* Text area */}
           <div className="col-span-1 md:col-span-2">
-            {userData.about.description?.map((desc, idx) => (
+            <p
+              className="text-xl text-gray-700 mb-4 dark:text-gray-300 "
+            >
+              {t("about1")}
+            </p>
+            <p
+              className="text-xl text-gray-700 mb-4 dark:text-gray-300 "
+            >
+              {t("about2")}
+            </p>
+            <p
+              className="text-xl text-gray-700 mb-4 dark:text-gray-300 "
+            >
+              {t("about3")}
+            </p>
+            <p
+              className="text-xl text-gray-700 mb-4 dark:text-gray-300 "
+            >
+              {t("about4")}
+            </p>
+
+            {/* {userData.about.description?.map((desc, idx) => (
               <p
                 key={idx}
                 className="text-xl text-gray-700 mb-4 dark:text-gray-300 "
               >
                 {desc}
               </p>
-            ))}
+            ))} */}
 
             <h1 className="bg-red-500 text-3xl rounded-md px-2 py-1 inline-block font-bold text-gray-50">
-              Tech Stack
+              {t("techStack")}
             </h1>
             <div className="flex flex-row flex-wrap mt-8">
               {/* wow animate-animated animate__heartBeat  */}

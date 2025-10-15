@@ -1,17 +1,93 @@
 {
   "name": "Elvin Salmanov",
   "designation": "Frontend Developer",
-  "developer":"Developer",
+  "developer": "Developer",
   "about": "About",
   "projects": "Projects",
   "experience": "Experience",
+  "education": "Education",
   "contact": "Contact",
   "thatsme": "That's me",
   "favouriteProjects": "Favourite Projects",
   "viewAll": "View all",
   "latestCode": "Latest Code",
   "viewGitHub": "View GitHub",
-  "viewRepository":"View Repository",
+  "viewRepository": "View Repository",
   "allRightsReserved": "All Rights Reserved",
-  "developedBy": "Developed by"
+  "developedBy": "Developed by",
+  "aboutMe": "About Me.",
+  "aboutTitle": "I'm a frontend developer passionate about creating clean and useful web experiences",
+  "currentlyWorking": "Currently working at",
+  "currentPosition": "Azerbaijan Airlines as a Software Engineer",
+  "aboutContact1": "For any sort help / enquiry, shoot a",
+  "mail": "mail",
+  "aboutContact2": "and I'll get back.",
+  "aboutJobTitle": "Job Opportunities",
+  "aboutJob1": "I'm looking for a job currently, If you see me as a good fit, check my",
+  "aboutJob2": "and I'd love to work for you.",
+  "socialLinks": "Social Links",
+  "about1": "Mid-level developer specializing in React, React Native, and modern JavaScript.",
+  "about2": "Focused on building clean, scalable web and mobile applications with smooth user experience.",
+  "about3": "Experienced in UI architecture, performance optimization, and API integration across various projects.",
+  "about4": "Constantly learning, improving, and solving complex challenges along the way.",
+  "techStack": "Tech Stack",
+  "experienceArr": [
+    {
+      "title": "Software engineer",
+      "company": "Azerbaijan Airlines",
+      "year": "2022 - PRESENT",
+      "companyLink": "https://www.azal.az/en/",
+      "desc": "Developed React Native apps for aircrew to streamline workflows and improve communication. Automated key operational processes and built JavaScript add-ons for efficiency. Maintained backend systems and ensured connectivity between azal.az and internal servers. Supported critical airline software, led server migration to AzInTelecom, and integrated new IT systems. Implemented Grafana and Prometheus for system monitoring and created detailed IT documentation for consistent operations."
+    },
+    {
+      "title": "React js and React Native Developer",
+      "company": "Union Strategies Inc",
+      "year": "2024 - 2025",
+      "companyLink": "https://younified.ca/",
+      "desc": "Developed the 'Younified' mobile app (iOS & Android) using React Native, featuring post feeds with likes, comments, news, surveys, notifications, and profile editing. Co-developed the 'Down Syndrome CA' app, contributing to core functionality and UI design. Optimized app performance, integrated APIs, and enhanced the Younified.ca website for better user experience."
+    },
+    {
+      "title": "Frontend developer",
+      "company": "Developia Engineering Academy",
+      "year": "2019 - 2021",
+      "companyLink": "https://developia.az/edu/",
+      "desc": "Built modern, responsive interfaces with React and turned complex ideas into smooth user experiences. Also taught JavaScript — helping others understand the language’s core logic and best practices. Hands-on with HTML, CSS, JS, and jQuery, always aiming for clean and efficient code."
+    },
+    {
+      "title": "React developer",
+      "company": "Gadimlie Studio",
+      "year": "2018 - 2019",
+      "companyLink": "https://www.instagram.com/gadimlie.studio/",
+      "desc": "Worked on naftalanproducts.com, developing key pages, integrating APIs, and implementing authentication, multi-language support, and cart functionality. Improved SEO and optimized overall site performance."
+    }
+  ],
+  "educationArr": [
+    {
+      "title": "Master's in Computer Science",
+      "company": "Baku State University",
+      "year": "2021 - 2023",
+      "companyLink": "https://bsu.edu.az/en/welcome_to_baku_state_university",
+      "desc": "Earned a Master’s degree with distinction, maintaining an 85/100 average. Recognized for consistent performance, analytical thinking, and a passion for solving complex technical problems."
+    },
+    {
+      "title": "Bachelor's in Computer Science",
+      "company": "National Aviation Academy of Azerbaijan Republic",
+      "year": "2018 - 2021",
+      "companyLink": "https://naa.edu.az/",
+      "desc": "Graduated with distinction in Computer Science, earning a red diploma and a 94/100 GPA. Recognized for leadership and collaboration within the group."
+    },
+    {
+      "title": "High School",
+      "company": "Secondary School No. 17, Baku.",
+      "year": "2014 - 2017",
+      "companyLink": "https://bakimektebleri.edu.az/17/",
+      "desc": "Focused on Physics, Chemistry, and Math — graduated with excellent results. Actively participated in math and physics olympiads, earning first places in the Khatai district of Baku."
+    }
+  ],
+  "contact1": "Get in touch, let's talk.",
+  "contact2": "Fill in the details and I'll get back to you as soon as I can.",
+  "contactAddress": "Baku, Azerbaijan",
+  "formName": "Your Name",
+  "formMessage": "Message",
+  "formSubmit":"Send Message"
 }

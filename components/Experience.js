@@ -1,52 +1,81 @@
 import userData from "@constants/data";
 import React from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Experience() {
+  const { t, ready } = useTranslation("common");
+  const experiences = t("experienceArr", { returnObjects: true }); // 👈 получаем массив из JSON
+  const education = t("educationArr", { returnObjects: true }); // 👈 получаем массив из JSON
+
+  if (!ready) return null;
   return (
     <section className="bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
         <h1 className="text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
-          Experience
+          {t("experience")}
         </h1>
       </div>
       <div style={{ overflowX: 'hidden' }}  className="bg-[#F1F1F1] dark:bg-gray-900 -mt-4 py-[25px]">
         <div className="grid grid-cols-1 dark:bg-gray-900 max-w-xl mx-auto pt-20">
           {/* Experience card */}
-          {userData.experience.map((exp, idx) => {
+          {experiences.map((exp, idx) => (
+        <div
+          className="wow animate__animated animate__fadeInRight"
+          key={idx}
+        >
+          <ExperienceCard
+            title={exp.title}
+            desc={exp.desc}
+            year={exp.year}
+            company={exp.company}
+            companyLink={exp.companyLink}
+          />
 
-            // console.log(idx);
-            return (
-              <div className="wow animate__animated animate__fadeInRight" key={idx}>
-                <ExperienceCard
-                  title={exp.title}
-                  desc={exp.desc}
-                  year={exp.year}
-                  company={exp.company}
-                  companyLink={exp.companyLink}
-                />
-                {idx === userData.experience.length - 1 ? null : (
-                  <div className="divider-container flex flex-col items-center -mt-2">
-                    <div className="w-4 h-4 bg-green-500 rounded-full relative z-10">
-                      <div className="w-4 h-4 bg-green-500 rounded-full relative z-10 animate-ping"></div>
-                    </div>
-                    <div className="w-1 h-24 bg-gray-200 dark:bg-gray-500 rounded-full -mt-2"></div>
-                  </div>
-                )}
+          {idx === experiences.length - 1 ? null : (
+            <div className="divider-container flex flex-col items-center -mt-2">
+              <div className="w-4 h-4 bg-green-500 rounded-full relative z-10">
+                <div className="w-4 h-4 bg-green-500 rounded-full relative z-10 animate-ping"></div>
               </div>
-            )
-          })}
+              <div className="w-1 h-24 bg-gray-200 dark:bg-gray-500 rounded-full -mt-2"></div>
+            </div>
+          )}
+        </div>
+      ))}
         </div>
       </div>
 
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
         <h1 className="text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
-          Education
+          {t("education")}
         </h1>
       </div>
       <div style={{ overflowX: 'hidden' }} className="bg-[#F1F1F1] dark:bg-gray-900 -mt-4">
         <div className="grid grid-cols-1 dark:bg-gray-900 max-w-xl mx-auto pt-20">
-          {/* Experience card */}
-          {userData.education.map((exp, idx) => {
+          {/* Education card */}
+          {education.map((exp, idx) => (
+        <div
+          className="wow animate__animated animate__fadeInRight"
+          key={idx}
+        >
+          <ExperienceCard
+            title={exp.title}
+            desc={exp.desc}
+            year={exp.year}
+            company={exp.company}
+            companyLink={exp.companyLink}
+          />
+
+          {idx === education.length - 1 ? null : (
+            <div className="divider-container flex flex-col items-center -mt-2">
+              <div className="w-4 h-4 bg-green-500 rounded-full relative z-10">
+                <div className="w-4 h-4 bg-green-500 rounded-full relative z-10 animate-ping"></div>
+              </div>
+              <div className="w-1 h-24 bg-gray-200 dark:bg-gray-500 rounded-full -mt-2"></div>
+            </div>
+          )}
+        </div>
+      ))}
+          {/* {userData.education.map((exp, idx) => {
 
             // console.log(idx);
             return (
@@ -70,11 +99,9 @@ export default function Experience() {
               </div>
               //</React.Fragment>
             )
-          })}
+          })} */}
         </div>
       </div>
-
-
     </section>
   );
 }

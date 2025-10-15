@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import userData from "@constants/data";
 import emailjs from "emailjs-com";
+import { useTranslation } from "react-i18next";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -8,6 +9,9 @@ export default function Contact() {
     email: "",
     message: "",
   });
+
+  const { t, ready } = useTranslation("common");
+  if (!ready) return null;
 
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
@@ -65,7 +69,7 @@ export default function Contact() {
     <section>
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800 antialiased">
         <h1 className=" text-5xl md:text-9xl font-bold py-10 text-center md:text-left">
-          Contact
+          {t("contact")}
         </h1>
       </div>
       <div className="wow animate_animated animate__shakeX relative z-10 rounded-md shadow-md bg-[#02044A] p-4 md:p-10 lg:p-20 max-w-6xl mx-auto mb-20 -mt-4">
@@ -73,10 +77,10 @@ export default function Contact() {
           <div className="md:ml-4">
             <header className="">
               <h1 className="text-gray-50 font-semibold text-2xl">
-                Get in touch, let's talk.
+                {t("contact1")}
               </h1>
               <p className="font-light text-base text-gray-200 mt-2">
-                Fill in the details and I'll get back to you as soon as I can.
+                {t("contact2")}
               </p>
             </header>
             <div className="icons-container inline-flex flex-col my-20">
@@ -123,7 +127,7 @@ export default function Contact() {
                 >
                   <path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z" />
                 </svg>
-                <p className="text-gray-50 font-light text-sm">{userData.address}</p>
+                <p className="text-gray-50 font-light text-sm">{t("contactAddress")}</p>
               </div>
 
 
@@ -214,13 +218,13 @@ export default function Contact() {
           </div>
           {/* Правая часть — форма */}
           <form onSubmit={sendEmail} className="bg-white rounded-lg p-6 flex flex-col">
-            <label htmlFor="name" className="text-sm text-gray-600 mx-1">Your Name</label>
+            <label htmlFor="name" className="text-sm text-gray-600 mx-1">{t("formName")}</label>
             <input
               type="text"
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500"
+              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500 bg-white"
             />
 
             <label htmlFor="email" className="text-sm text-gray-600 mx-1 mt-4">Email</label>
@@ -229,16 +233,16 @@ export default function Contact() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500"
+              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500 bg-white"
             />
 
-            <label htmlFor="message" className="text-sm text-gray-600 mx-1 mt-4">Message</label>
+            <label htmlFor="message" className="text-sm text-gray-600 mx-1 mt-4">{t("formMessage")}</label>
             <textarea
               name="message"
               rows="4"
               value={formData.message}
               onChange={handleChange}
-              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500"
+              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500 bg-white"
             />
 
             {/* Кнопка отправки */}
@@ -250,7 +254,7 @@ export default function Contact() {
               {isLoading ? (
                 <Spinner />
               ) : (
-                "Send Message"
+                t("formSubmit")
               )}
             </button>
 
