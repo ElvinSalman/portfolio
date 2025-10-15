@@ -1,4 +1,4 @@
-💼 Portfolio — Elvin Salmanov
+# 💼 Portfolio — Elvin Salmanov
 
 A clean, modern, and fully responsive portfolio website built with Next.js and Tailwind CSS — designed to showcase my work, projects, and experience as a React / React Native Developer.
 
@@ -25,6 +25,8 @@ React Rough Notation — Animated highlighting in Hero section
 next-i18next — Internationalization for multilingual support
 
 Vercel — Hosting and deployment
+
+# View
 
 https://elvinsalman.vercel.app/
 
