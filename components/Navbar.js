@@ -32,7 +32,7 @@ export default function Navbar() {
   return (
     <nav className="relative max-w-6xl mx-auto px-4 py-6 md:py-10">
       {/* Desktop Navbar */}
-      <div className="hidden md:flex justify-between items-center">
+      <div className="hidden md900:flex justify-between items-center">
         <div className="flex flex-col">
           <Link href={`/${i18n.language}`} className="font-semibold text-xl dark:text-gray-100">
             <h1 className="font-semibold text-xl dark:text-gray-100">
@@ -149,7 +149,7 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Navbar */}
-      <div className="flex justify-between items-center md:hidden">
+      <div className="flex justify-between items-center md900:hidden">
         <Link href={`/${i18n.language}`} className="font-semibold text-xl dark:text-gray-100">
           <h1 className="font-semibold text-xl dark:text-gray-100">
             {t("name")}
