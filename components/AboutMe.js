@@ -22,6 +22,7 @@ export default function AboutMe() {
             style={{ lineHeight: "3rem" }}
           >
             {t("aboutTitle")}. {t("")}{" "}
+            {t("currentlyWorking")}
             <a
               className="bg-red-500 rounded-md px-2 py-1 text-white"
               href={userData.about.currentPositionUrl}
