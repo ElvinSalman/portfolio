@@ -4,8 +4,6 @@ import { useRouter } from "next/router";
 import { useState, useEffect } from "react";
 import { Globe, Loader2 } from "lucide-react";
 import ReactCountryFlag from "react-country-flag";
-// import i18n from "i18next";
-
 import i18n from "../lib/i18n";
 
 const LANGUAGES = [
@@ -23,37 +21,43 @@ export default function LanguageSelect() {
   const [loading, setLoading] = useState(false);
   const [currentLang, setCurrentLang] = useState(LANGUAGES[0]);
 
-  // После монтирования устанавливаем язык
+  // ✅ Синхронизация с URL (если в ссылке /az, /ru, /en — обновляем селект)
   useEffect(() => {
-    setMounted(true);
-    const savedLang = localStorage.getItem("lang") || locale;
-    const lang = LANGUAGES.find((l) => l.code === savedLang) || LANGUAGES[0];
-    setCurrentLang(lang);
+    if (!router.isReady) return;
 
-    if (savedLang && savedLang !== i18n.language) {
-      i18n.changeLanguage(savedLang);
+    const pathLang = asPath.split("/")[1]; // первый сегмент URL
+    const detectedLang =
+      LANGUAGES.find((l) => l.code === pathLang) ||
+      LANGUAGES.find((l) => l.code === locale) ||
+      LANGUAGES[0];
+
+    setCurrentLang(detectedLang);
+    localStorage.setItem("lang", detectedLang.code);
+
+    if (i18n.language !== detectedLang.code) {
+      i18n.changeLanguage(detectedLang.code);
     }
-  }, [locale]);
 
-  const changeLanguage = (code) => {
-    const lang = LANGUAGES.find((l) => l.code === code);
+    setMounted(true);
+  }, [asPath, locale, router.isReady]);
+
+  const changeLanguage = async (code) => {
     if (loading) return;
-    setLoading(true);
+    const lang = LANGUAGES.find((l) => l.code === code);
     if (!lang) return;
+
+    setLoading(true);
 
     try {
       // Меняем язык в i18next
-      i18n.changeLanguage(code);
-
-      // Сохраняем выбор в localStorage
+      await i18n.changeLanguage(code);
+      // Сохраняем в localStorage
       localStorage.setItem("lang", code);
-
-      // Меняем локаль Next.js маршрута
-      router.push({ pathname, query }, asPath, { locale: code });
-    } finally {
-      // Закрываем выпадающее меню
-      setLoading(false);
+      // Обновляем URL с новой локалью
+      await router.push({ pathname, query }, asPath, { locale: code });
       setCurrentLang(lang);
+    } finally {
+      setLoading(false);
       setOpen(false);
     }
   };
@@ -62,7 +66,7 @@ export default function LanguageSelect() {
 
   return (
     <>
-      {/* 🌀 Фуллскрин спиннер */}
+      {/* 🌀 Фуллскрин загрузка при смене языка */}
       {loading && (
         <div
           style={{
@@ -84,7 +88,7 @@ export default function LanguageSelect() {
         </div>
       )}
 
-
+      {/* Выпадающий список */}
       <div style={{ position: "relative" }}>
         <button
           onClick={() => setOpen(!open)}
@@ -102,7 +106,7 @@ export default function LanguageSelect() {
             cursor: "pointer",
             boxShadow: "0 1px 3px rgba(0,0,0,0.1)",
             fontSize: "14px",
-            color: 'rgba(0,0,0,0.8)'
+            color: "rgba(0,0,0,0.8)",
           }}
         >
           <ReactCountryFlag
@@ -110,7 +114,9 @@ export default function LanguageSelect() {
             svg
             style={{ width: "22px", height: "22px", borderRadius: "3px" }}
           />
-          <span style={{ flex: 1, textAlign: "center" }}>{currentLang.label}</span>
+          <span style={{ flex: 1, textAlign: "center" }}>
+            {currentLang.label}
+          </span>
           <Globe size={16} style={{ opacity: 0.7 }} />
         </button>
 
@@ -118,7 +124,7 @@ export default function LanguageSelect() {
           <ul
             style={{
               position: "absolute",
-              overflow: 'hidden',
+              overflow: "hidden",
               top: "110%",
               left: 0,
               width: "170px",
@@ -131,7 +137,7 @@ export default function LanguageSelect() {
               boxShadow: "0 4px 12px rgba(0,0,0,0.1)",
               zIndex: 10,
               animation: "fadeIn 0.2s ease",
-              color: 'rgba(0,0,0,0.8)'
+              color: "rgba(0,0,0,0.8)",
             }}
           >
             {LANGUAGES.map((lang) => (
@@ -161,17 +167,17 @@ export default function LanguageSelect() {
         )}
 
         <style jsx>{`
-        @keyframes fadeIn {
-          from {
-            opacity: 0;
-            transform: translateY(-5px);
+          @keyframes fadeIn {
+            from {
+              opacity: 0;
+              transform: translateY(-5px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
           }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-      `}</style>
+        `}</style>
       </div>
     </>
   );
