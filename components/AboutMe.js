@@ -11,7 +11,7 @@ export default function AboutMe() {
   return (
     <section className="bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
-        <h1 className=" text-5xl md:text-9xl font-bold py-20 text-center md:text-left">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold py-20 text-center md:text-left">
           {t("aboutMe")}
         </h1>
       </div>
@@ -23,6 +23,7 @@ export default function AboutMe() {
           >
             {t("aboutTitle")}. {t("")}{" "}
             {t("currentlyWorking")}
+            <br/>
             <a
               className="bg-red-500 rounded-md px-2 py-1 text-white"
               href={userData.about.currentPositionUrl}

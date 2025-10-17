@@ -68,7 +68,7 @@ export default function Contact() {
   return (
     <section>
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800 antialiased">
-        <h1 className=" text-5xl md:text-9xl font-bold py-10 text-center md:text-left">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold py-20 text-center md:text-left">
           {t("contact")}
         </h1>
       </div>
