@@ -15,7 +15,7 @@ export default function Experience() {
           {t("experience")}
         </h1>
       </div>
-      <div style={{ overflowX: 'hidden' }}  className="bg-[#F1F1F1] dark:bg-gray-900 -mt-4 py-[25px]">
+      <div style={{ overflowX: 'hidden' }}  className="bg-[#F1F1F1] dark:bg-gray-900 -mt-10 py-[25px]">
         <div className="grid grid-cols-1 dark:bg-gray-900 max-w-xl mx-auto pt-20">
           {/* Experience card */}
           {experiences.map((exp, idx) => (
@@ -49,7 +49,7 @@ export default function Experience() {
           {t("education")}
         </h1>
       </div>
-      <div style={{ overflowX: 'hidden' }} className="bg-[#F1F1F1] dark:bg-gray-900 -mt-4">
+      <div style={{ overflowX: 'hidden' }} className="bg-[#F1F1F1] dark:bg-gray-900 -mt-10">
         <div className="grid grid-cols-1 dark:bg-gray-900 max-w-xl mx-auto pt-20">
           {/* Education card */}
           {education.map((exp, idx) => (
