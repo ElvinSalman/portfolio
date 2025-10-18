@@ -33,6 +33,11 @@ const userData = {
       imgUrl: "/down.png",
     },
     {
+      title: "ESRI - Official Website Development",
+      link: "http://esri.gov.az/en",
+      imgUrl: "/esri.png",
+    },
+    {
       title: "Admin Dashboard",
       link: "https://elvin-dashboard-338l.vercel.app/",
       imgUrl: "/eadmin.png",

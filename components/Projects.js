@@ -47,7 +47,7 @@ const ProjectCard = ({ title, link, imgUrl, number, someClass }) => {
             className="transform hover:scale-125 transition duration-2000 ease-out object-cover h-full w-full"
           />
         </div>
-        <h1 className="absolute top-10 left-10 text-gray-50 font-bold text-xl bg-gradient-to-r from-red-500/60 to-blue-500/60 rounded-md px-2">
+        <h1 style={{maxWidth:"70%"}} className="absolute top-5 left-5 text-gray-50 font-bold text-xl bg-gradient-to-r from-red-600/80 to-blue-400/80 rounded-md px-2">
           {title}
         </h1>
         <h1 className="absolute bottom-10 left-10 text-black/50 font-bold text-xl">
