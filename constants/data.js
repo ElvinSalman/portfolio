@@ -132,7 +132,7 @@ const userData = {
 
   ],
   resumeUrl:
-    "https://drive.google.com/file/d/17B18vJvpCl_yRStS_KYzYWg5aWlDxY8g/view?usp=sharing",
+    "https://drive.google.com/file/d/1vLNWj4joTC2fYd7pyubyM_HBuP5u51Uk/view?usp=sharing",
   socialLinks: {
     instagram: "https://instagram.com/salmanov.elvin00",
     twitter: "https://twitter.com/ElvinSalman00",
