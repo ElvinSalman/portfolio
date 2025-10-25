@@ -34,8 +34,8 @@ const userData = {
     },
     {
       title: "ESRI - Official Website Development",
-      link: "http://esri.gov.az/en",
-      imgUrl: "/esri.png",
+      link: "http://esri.gov.az",
+      imgUrl: "/esri_az.png",
     },
     {
       title: "Admin Dashboard",
