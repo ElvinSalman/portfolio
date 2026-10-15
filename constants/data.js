@@ -67,8 +67,8 @@ const userData = {
       `Experienced in UI architecture, performance optimization, and API integration across various projects.`,
       `Constantly learning, improving, and solving complex challenges along the way.`
     ],
-    currentPosition: "Azerbaijan Airlines as a Software Engineer",
-    currentPositionUrl: "https://www.azal.az/en/",
+    currentPosition: "PASHA Bank OJSC as a Robotic Process Automation Developer",
+    currentPositionUrl: "https://www.pashabank.az/",
   },
   education: [
     {
@@ -132,7 +132,7 @@ const userData = {
 
   ],
   resumeUrl:
-    "https://drive.google.com/file/d/1vLNWj4joTC2fYd7pyubyM_HBuP5u51Uk/view?usp=sharing",
+    "https://drive.google.com/file/d/1OvOeRRgn_6OWpg6vL4T-lneUHcX_V1uH/view?usp=sharing",
   socialLinks: {
     instagram: "https://instagram.com/salmanov.elvin00",
     twitter: "https://twitter.com/ElvinSalman00",

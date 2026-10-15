@@ -18,7 +18,7 @@
   "aboutMe": "About Me.",
   "aboutTitle": "I'm a frontend developer passionate about creating clean and useful web experiences",
   "currentlyWorking": "Currently working at ",
-  "currentPosition": "Azerbaijan Airlines as a Software Engineer",
+  "currentPosition": "PASHA Bank OJSC as a Robotic Process Automation Developer",
   "aboutContact1": "For any sort help / enquiry, shoot a",
   "mail": "mail",
   "aboutContact2": "and I'll get back.",
@@ -33,9 +33,16 @@
   "techStack": "Tech Stack",
   "experienceArr": [
     {
+      "title": "Robotic Process Automation Developer",
+      "company": "PASHA Bank OJSC",
+      "year": "2026 - PRESENT",
+      "companyLink": "https://www.pashabank.az/",
+      "desc": "Develop, maintain, and optimize RPA solutions using UiPath to automate business processes and improve operational efficiency. Monitor and troubleshoot production workflows, investigate failures, and implement improvements to ensure stability, reliability, and maintainability. Collaborate with business and technical teams to analyze requirements, develop automation solutions, and perform testing and debugging to ensure consistent performance."
+    },
+    {
       "title": "Software engineer",
       "company": "Azerbaijan Airlines",
-      "year": "2022 - PRESENT",
+      "year": "2022 - 2026",
       "companyLink": "https://www.azal.az/en/",
       "desc": "Developed React Native apps for aircrew to streamline workflows and improve communication. Automated key operational processes and built JavaScript add-ons for efficiency. Maintained backend systems and ensured connectivity between azal.az and internal servers. Supported critical airline software, led server migration to AzInTelecom, and integrated new IT systems. Implemented Grafana and Prometheus for system monitoring and created detailed IT documentation for consistent operations."
     },
@@ -96,5 +103,5 @@
   "contactAddress": "Baku, Azerbaijan",
   "formName": "Your Name",
   "formMessage": "Message",
-  "formSubmit":"Send Message"
+  "formSubmit": "Send Message"
 }

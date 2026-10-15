@@ -18,7 +18,7 @@
   "aboutMe": "Mənim haqqımda.",
   "aboutTitle": "Mən təmiz və faydalı veb təcrübələr yaratmağa həvəsli bir frontend proqramçısıyam",
   "currentlyWorking": "Hal-hazırda işlədiyim yer ",
-  "currentPosition": "Azerbaijan Airlines şirkətində proqram mühəndisi vəzifəsində",
+  "currentPosition": "PASHA Bank OJSC şirkətində Robotlaşdırılmış Proseslərin Avtomatlaşdırılması (RPA) üzrə Proqramçı vəzifəsində",
   "aboutContact1": "Hər hansı bir kömək və ya sorğu üçün",
   "mail": "məktub",
   "aboutContact2": "göndərin və mən mütləq cavab verəcəyəm. And içirəm.",
@@ -33,9 +33,16 @@
   "techStack": "Texnologiyalar",
   "experienceArr": [
     {
+      "title": "Robotlaşdırılmış Proseslərin Avtomatlaşdırılması (RPA) üzrə Proqramçı",
+      "company": "PASHA Bank OJSC",
+      "year": "2026 - HAZIRDA",
+      "companyLink": "https://www.pashabank.az/",
+      "desc": "UiPath platformasından istifadə edərək biznes proseslərinin avtomatlaşdırılması və əməliyyat səmərəliliyinin artırılması üçün RPA həllərinin hazırlanması, dəstəklənməsi və optimallaşdırılması. İstehsalat mühitində avtomatlaşdırılmış proseslərin monitorinqi, yaranan xətaların araşdırılması və aradan qaldırılması, sistemlərin sabitliyinin, etibarlılığının və davamlılığının təmin edilməsi. Biznes və texniki komandalarla əməkdaşlıq edərək tələblərin təhlili, avtomatlaşdırma həllərinin hazırlanması, test edilməsi və təkmilləşdirilməsi."
+    },
+    {
       "title": "Proqram mühəndisi",
       "company": "Azerbaijan Airlines",
-      "year": "2022 - İNDİYƏDƏK",
+      "year": "2022 - 2026",
       "companyLink": "https://www.azal.az/en/",
       "desc": "Heyət üzvləri üçün React Native əsaslı mobil tətbiqlər hazırlayaraq iş axınlarını sadələşdirdim və kommunikasiya prosesini yaxşılaşdırdım. Əsas əməliyyat proseslərini avtomatlaşdırdım və səmərəliliyi artırmaq üçün JavaScript əlavələri yaratdım. Server sistemlərini dəstəklədim və azal.az ilə daxili serverlər arasında sabit əlaqə təmin etdim. Aviaşirkətin kritik proqram təminatını dəstəklədim, serverlərin AzInTelecom-a köçürülməsinə rəhbərlik etdim və yeni IT sistemləri inteqrasiya etdim. Sistem monitorinqi üçün Grafana və Prometheus tətbiq etdim və fasiləsiz iş üçün ətraflı IT sənədləri hazırladım."
     },
@@ -52,7 +59,7 @@
       "year": "2024 — 2025",
       "companyLink": "http://esri.gov.az/az",
       "desc": "ESRI Azerbaijan rəhbərliyi ilə inkişaf komandası arasında əlaqəni təşkil edərək məqsədləri, işin gedişatını və keyfiyyəti idarə etmiş, rəsmi vebsaytın (http://esri.gov.az/en) vaxtında və tələblərə uyğun şəkildə təqdim olunmasını təmin etmişəm."
-    },    
+    },
     {
       "title": "Frontend tərtibatçısı",
       "company": "Developia Engineering Academy",
@@ -96,5 +103,5 @@
   "contactAddress": "Bakı, Azərbaycan",
   "formName": "Adınız",
   "formMessage": "Mesajınız",
-  "formSubmit":"Mesajı göndərmək"
+  "formSubmit": "Mesajı göndərmək"
 }
