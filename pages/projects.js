@@ -9,3 +9,5 @@ export default function projects() {
     </ContainerBlock>
   );
 }
+
+export { getStaticProps } from "../lib/pageTranslations";

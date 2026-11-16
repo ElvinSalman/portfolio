@@ -9,3 +9,5 @@ export default function contact() {
     </ContainerBlock>
   );
 }
+
+export { getStaticProps } from "../lib/pageTranslations";

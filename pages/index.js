@@ -6,10 +6,7 @@ import getLatestRepos from "@lib/getLatestRepos";
 import userData from "@constants/data";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
-import { redirect } from "next/navigation";
-
 export default function Home({ repositories }) {
-  // redirect("/en");
   return (
     <ContainerBlock
       title="Elvin Salmanov - Developer, Writer, Creator"

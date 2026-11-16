@@ -1,304 +1,145 @@
-import React, { useState } from "react";
+import { useRef, useState } from "react";
+import emailjs from "@emailjs/browser";
+import { Mail, MapPin, Phone, ArrowUpRight, Loader2 } from "lucide-react";
+import { useTranslation } from "next-i18next";
 import userData from "@constants/data";
-import emailjs from "emailjs-com";
-import { useTranslation } from "react-i18next";
 
 export default function Contact() {
+  const { t } = useTranslation("common");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     message: "",
   });
-
-  const { t, ready } = useTranslation("common");
-  if (!ready) return null;
-
   const [status, setStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
-
-  const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
-  };
-
-  const validateForm = () => {
-    if (!formData.name.trim() || !formData.email.trim() || !formData.message.trim()) {
-      setStatus("❗ Please fill out all fields.");
-      return false;
+  const sending = useRef(false);
+  async function sendEmail(event) {
+    event.preventDefault();
+    if (sending.current) return;
+    const data = Object.fromEntries(
+      Object.entries(formData).map(([key, value]) => [key, value.trim()]),
+    );
+    if (Object.values(data).some((value) => !value)) {
+      setStatus("formRequired");
+      return;
     }
-
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(formData.email)) {
-      setStatus("⚠️ Invalid email format.");
-      return false;
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email)) {
+      setStatus("formInvalidEmail");
+      return;
     }
-
-    return true;
-  };
-
-  const sendEmail = (e) => {
-    e.preventDefault();
-
-    if (!validateForm()) return;
-
-    setIsLoading(true);     // Показать спиннер
-    setStatus("");          // Очистить предыдущие сообщения
-
-    emailjs
-      .send(
-        "service_50wgfvj",
-        "template_zhoexop",
-        formData,
-        "-Hccfm_2DUuYXUEoN"
-      )
-      .then(
-        () => {
-          setStatus("✅ Message sent successfully!");
-          setFormData({ name: "", email: "", message: "" });
-        },
-        (error) => {
-          console.error("EmailJS error:", error);
-          setStatus("❌ Failed to send message. Try again later.");
-        }
-      )
-      .finally(() => {
-        setIsLoading(false); // Скрыть спиннер
+    sending.current = true;
+    setIsLoading(true);
+    setStatus("");
+    try {
+      await emailjs.send("service_50wgfvj", "template_zhoexop", data, {
+        publicKey: "-Hccfm_2DUuYXUEoN",
       });
-  };
-
+      setStatus("formSuccess");
+      setFormData({ name: "", email: "", message: "" });
+    } catch {
+      setStatus("formError");
+    } finally {
+      sending.current = false;
+      setIsLoading(false);
+    }
+  }
   return (
-    <section>
-      <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800 antialiased">
-        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold py-20 text-center md:text-left">
-          {t("contact")}
-        </h1>
-      </div>
-      <div className="wow animate_animated animate__shakeX relative z-10 rounded-md shadow-md bg-[#02044A] p-4 md:p-10 lg:p-20 max-w-6xl mx-auto mb-20 -mt-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          <div className="md:ml-4">
-            <header className="">
-              <h1 className="text-gray-50 font-semibold text-2xl">
-                {t("contact1")}
-              </h1>
-              <p className="font-light text-base text-gray-200 mt-2">
-                {t("contact2")}
-              </p>
-            </header>
-            <div className="icons-container inline-flex flex-col my-20">
-
-              <div onClick={() => (window.location.href = 'tel:+994559799871')} className="flex flex-row items-center space-x-6 rounded-md border border-[#02044A] hover:border hover:border-blue-500 p-4 cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-telephone-fill h-4 w-4 text-blue-500"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M1.885.511a1.745 1.745 0 0 1 2.61.163L6.29 2.98c.329.423.445.974.315 1.494l-.547 2.19a.678.678 0 0 0 .178.643l2.457 2.457a.678.678 0 0 0 .644.178l2.189-.547a1.745 1.745 0 0 1 1.494.315l2.306 1.794c.829.645.905 1.87.163 2.611l-1.034 1.034c-.74.74-1.846 1.065-2.877.702a18.634 18.634 0 0 1-7.01-4.42 18.634 18.634 0 0 1-4.42-7.009c-.362-1.03-.037-2.137.703-2.877L1.885.511z"
-                  />
-                </svg>
-                <p className="text-gray-50 font-light text-sm">{userData.phone}</p>
-              </div>
-
-              <div onClick={() => (window.location.href = 'mailto:salmanov.elvin96@gmail.com')} className="flex flex-row items-center space-x-6 rounded-md border border-[#02044A] hover:border hover:border-blue-500 p-4 cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-envelope-fill h-4 w-4 text-blue-500"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M.05 3.555A2 2 0 0 1 2 2h12a2 2 0 0 1 1.95 1.555L8 8.414.05 3.555zM0 4.697v7.104l5.803-3.558L0 4.697zM6.761 8.83l-6.57 4.027A2 2 0 0 0 2 14h12a2 2 0 0 0 1.808-1.144l-6.57-4.027L8 9.586l-1.239-.757zm3.436-.586L16 11.801V4.697l-5.803 3.546z" />
-                </svg>
-                <p className="text-gray-50 font-light text-sm">{userData.email}</p>
-              </div>
-
-              <div className="flex flex-row items-center space-x-6 rounded-md border border-[#02044A] hover:border hover:border-blue-500 p-4 cursor-pointer">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="16"
-                  height="16"
-                  fill="currentColor"
-                  className="bi bi-pin-fill h-4 w-4 text-blue-500"
-                  viewBox="0 0 16 16"
-                >
-                  <path d="M4.146.146A.5.5 0 0 1 4.5 0h7a.5.5 0 0 1 .5.5c0 .68-.342 1.174-.646 1.479-.126.125-.25.224-.354.298v4.431l.078.048c.203.127.476.314.751.555C12.36 7.775 13 8.527 13 9.5a.5.5 0 0 1-.5.5h-4v4.5c0 .276-.224 1.5-.5 1.5s-.5-1.224-.5-1.5V10h-4a.5.5 0 0 1-.5-.5c0-.973.64-1.725 1.17-2.189A5.921 5.921 0 0 1 5 6.708V2.277a2.77 2.77 0 0 1-.354-.298C4.342 1.674 4 1.179 4 .5a.5.5 0 0 1 .146-.354z" />
-                </svg>
-                <p className="text-gray-50 font-light text-sm">{t("contactAddress")}</p>
-              </div>
-
-
-            </div>
-
-            <div className="social-icons flex flex-row space-x-8">
-
+    <section className="page-shell">
+      <h1 className="page-title">{t("contact")}</h1>
+      <div className="contact-grid">
+        <div className="contact-intro">
+          <h2>{t("contact1")}</h2>
+          <p>{t("contact2")}</p>
+          <address className="contact-details">
+            <a href={"tel:" + userData.phone.replace(/\s/g, "")}>
+              <Phone size={20} aria-hidden="true" />
+              {userData.phone}
+            </a>
+            <a href={"mailto:" + userData.email}>
+              <Mail size={20} aria-hidden="true" />
+              <span>{userData.email}</span>
+            </a>
+            <span>
+              <MapPin size={20} aria-hidden="true" />
+              {t("contactAddress")}
+            </span>
+          </address>
+          <div className="social-links">
+            {["linkedin", "github", "facebook", "instagram"].map((name) => (
               <a
+                key={name}
+                href={userData.socialLinks[name]}
                 target="_blank"
-                href={userData.socialLinks.linkedin}
-                className="h-10 w-10 rounded-full hover:bg-blue-500 flex items-center justify-center cursor-pointer"
+                rel="noopener noreferrer"
               >
-                <svg
-                  width="24"
-                  height="24"
-                  className="text-gray-50"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M4.98 3.5C4.98 4.60457 4.08457 5.5 2.98 5.5C1.87543 5.5 0.98 4.60457 0.98 3.5C0.98 2.39543 1.87543 1.5 2.98 1.5C4.08457 1.5 4.98 2.39543 4.98 3.5Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M0.5 8H5.5V23H0.5V8Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M8.5 8H13.13V10.01H13.2C13.87 8.87 15.19 8 16.94 8C21.06 8 21.5 10.34 21.5 14.12V23H16.5V14.88C16.5 13.16 16.46 10.93 14.26 10.93C12.02 10.93 11.72 12.88 11.72 14.76V23H6.72V8H8.5Z"
-                    fill="currentColor"
-                  />
-                </svg>
+                {name}
+                <ArrowUpRight size={15} aria-hidden="true" />
               </a>
-
-              <a
-                target="_blank"
-                href={userData.socialLinks.facebook}
-                className="h-10 w-10 rounded-full hover:bg-blue-500 flex items-center justify-center cursor-pointer"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  className="text-gray-50"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    d="M9.19795 21.5H13.198V13.4901H16.8021L17.198 9.50977H13.198V7.5C13.198 6.94772 13.6457 6.5 14.198 6.5H17.198V2.5H14.198C11.4365 2.5 9.19795 4.73858 9.19795 7.5V9.50977H7.19795L6.80206 13.4901H9.19795V21.5Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-
-              <a
-                target="_blank"
-                href={userData.socialLinks.instagram}
-                className="h-10 w-10 rounded-full hover:bg-blue-500 flex items-center justify-center cursor-pointer"
-              >
-                <svg
-                  width="24"
-                  height="24"
-                  className="text-gray-50"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M12 7C9.23858 7 7 9.23858 7 12C7 14.7614 9.23858 17 12 17C14.7614 17 17 14.7614 17 12C17 9.23858 14.7614 7 12 7ZM9 12C9 13.6569 10.3431 15 12 15C13.6569 15 15 13.6569 15 12C15 10.3431 13.6569 9 12 9C10.3431 9 9 10.3431 9 12Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    d="M18 5C17.4477 5 17 5.44772 17 6C17 6.55228 17.4477 7 18 7C18.5523 7 19 6.55228 19 6C19 5.44772 18.5523 5 18 5Z"
-                    fill="currentColor"
-                  />
-                  <path
-                    fillRule="evenodd"
-                    clipRule="evenodd"
-                    d="M5 1C2.79086 1 1 2.79086 1 5V19C1 21.2091 2.79086 23 5 23H19C21.2091 23 23 21.2091 23 19V5C23 2.79086 21.2091 1 19 1H5ZM19 3H5C3.89543 3 3 3.89543 3 5V19C3 20.1046 3.89543 21 5 21H19C20.1046 21 21 20.1046 21 19V5C21 3.89543 20.1046 3 19 3Z"
-                    fill="currentColor"
-                  />
-                </svg>
-              </a>
-            </div>
+            ))}
           </div>
-          {/* Правая часть — форма */}
-          <form onSubmit={sendEmail} className="bg-white rounded-lg p-6 flex flex-col">
-            <label htmlFor="name" className="text-sm text-gray-600 mx-1">{t("formName")}</label>
-            <input
-              type="text"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500 bg-white"
-            />
-
-            <label htmlFor="email" className="text-sm text-gray-600 mx-1 mt-4">Email</label>
-            <input
-              type="text"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500 bg-white"
-            />
-
-            <label htmlFor="message" className="text-sm text-gray-600 mx-1 mt-4">{t("formMessage")}</label>
-            <textarea
-              name="message"
-              rows="4"
-              value={formData.message}
-              onChange={handleChange}
-              className="border rounded-md p-2 mt-1 focus:ring-2 ring-blue-500 bg-white"
-            />
-
-            {/* Кнопка отправки */}
-            <button
-              type="submit"
-              disabled={isLoading}
-              className="bg-blue-500 text-white font-semibold text-sm rounded-md mt-6 py-2 hover:bg-blue-600 transition w-1/2 mx-auto flex items-center justify-center"
-            >
-              {isLoading ? (
-                <Spinner />
-              ) : (
-                t("formSubmit")
-              )}
-            </button>
-
-            {/* Статус сообщения */}
-            {status && (
-              <p className="text-center text-sm text-gray-700 mt-4">{status}</p>
-            )}
-          </form>
         </div>
+        <form
+          onSubmit={sendEmail}
+          className="contact-form"
+          aria-busy={isLoading}
+        >
+          {[
+            ["name", "formName"],
+            ["email", "formEmail"],
+            ["message", "formMessage"],
+          ].map(([name, label]) => (
+            <div className="form-field" key={name}>
+              <label htmlFor={name}>{t(label)}</label>
+              {name === "message" ? (
+                <textarea
+                  id={name}
+                  name={name}
+                  rows={6}
+                  required
+                  maxLength={5000}
+                  placeholder={t("messagePlaceholder")}
+                  value={formData[name]}
+                  disabled={isLoading}
+                  onChange={(event) =>
+                    setFormData({ ...formData, [name]: event.target.value })
+                  }
+                />
+              ) : (
+                <input
+                  id={name}
+                  name={name}
+                  type={name === "email" ? "email" : "text"}
+                  autoComplete={name}
+                  required
+                  maxLength={name === "email" ? 254 : 100}
+                  placeholder={t(name + "Placeholder")}
+                  value={formData[name]}
+                  disabled={isLoading}
+                  onChange={(event) =>
+                    setFormData({ ...formData, [name]: event.target.value })
+                  }
+                />
+              )}
+            </div>
+          ))}
+          <button className="button-primary" type="submit" disabled={isLoading}>
+            {isLoading && (
+              <Loader2 className="animate-spin" size={18} aria-hidden="true" />
+            )}
+            {t(isLoading ? "formSending" : "formSubmit")}
+          </button>
+          <p
+            className={
+              "form-status " + (status === "formSuccess" ? "success" : "")
+            }
+            role="status"
+            aria-live="polite"
+          >
+            {status ? t(status) : ""}
+          </p>
+        </form>
       </div>
     </section>
-  );
-}
-
-// Компонент контакта
-function ContactItem({ icon, text, onClick }) {
-  return (
-    <div
-      onClick={onClick}
-      className="flex items-center space-x-4 border border-[#02044A] hover:border-blue-500 p-3 rounded-md cursor-pointer transition"
-    >
-      <i className={`bi ${icon} text-blue-500 text-lg`}></i>
-      <span className="text-sm text-gray-100">{text}</span>
-    </div>
-  );
-}
-
-// Компонент спиннера
-function Spinner() {
-  return (
-    <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-      <circle
-        className="opacity-25"
-        cx="12"
-        cy="12"
-        r="10"
-        stroke="currentColor"
-        strokeWidth="4"
-      ></circle>
-      <path
-        className="opacity-75"
-        fill="currentColor"
-        d="M4 12a8 8 0 018-8v4l3-3-3-3v4a8 8 0 00-8 8z"
-      ></path>
-    </svg>
   );
 }

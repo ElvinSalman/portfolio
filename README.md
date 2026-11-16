@@ -1,79 +1,36 @@
-# 💼 Portfolio — Elvin Salmanov
+# Portfolio — Elvin Salmanov
 
-A clean, modern, and fully responsive portfolio website built with Next.js and Tailwind CSS — designed to showcase my work, projects, and experience as a React / React Native Developer.
+Personal portfolio built with Next.js Pages Router, React 18, Tailwind CSS 3, next-themes and next-i18next. English, Russian and Azerbaijani translations live in public/locales.
 
-🚀 Features
+Production: https://elvinsalman.vercel.app
+Repository and deployment branch: ElvinSalman/portfolio, master.
 
-⚡ Fast and responsive
+## Development
 
-🌗 Dark/Light mode toggle
+Use Node.js 22 and npm. The committed package-lock.json is the single dependency lockfile.
 
-🧩 Reusable React components and clean structure
-
-🌍 Multi-language support (English, Russian, Azerbaijani)
-
-⚙️ Easy customization via constants folder
-
-🧰 Tech Stack
-
-Next.js — React framework for fast web apps
-
-Tailwind CSS — Utility-first CSS framework
-
-React Rough Notation — Animated highlighting in Hero section
-
-next-i18next — Internationalization for multilingual support
-
-Vercel — Hosting and deployment
-
-# View
-
-https://elvinsalman.vercel.app/
-
-# Pages
-
-I've kept the pages as simple as possible. Only the required sections are included with minimal content.
-
-## Landing
-
-![Hompage](https://github.com/elvinsalman/portfolio/blob/master/demo-images/home.png)
-
-## About
-
-![Hompage](https://github.com/elvinsalman/portfolio/blob/master/demo-images/about.png)
-
-## Projects
-
-![Hompage](https://github.com/elvinsalman/portfolio/blob/master/demo-images/projects.png)
-
-## Experience
-
-![Hompage](https://github.com/elvinsalman/portfolio/blob/master/demo-images/experience.png)
-
-## Contact
-
-![Hompage](https://github.com/elvinsalman/portfolio/blob/master/demo-images/contact.png)
-
-
-⚙️ Usage
-# Clone the repository
-git clone https://github.com/elvinsalman/portfolio.git
-
-# Install dependencies
-npm install
-
-# Start development server
+```sh
+npm ci
 npm run dev
+```
 
+## Verification
 
-Edit your personal info inside the constants folder — all details update automatically throughout the app.
+```sh
+npm run lint
+npm test
+npm run build
+npm start
+```
 
-☁️ Deployment
+Contact tests mock EmailJS; they never send mail. The form retains its existing EmailJS public key, service and template. Delivery and domain restrictions must be checked in the owner's EmailJS dashboard. Never commit private credentials or .env.local.
 
-Deploy easily using Vercel:
+The optional GITHUB_AUTH_TOKEN environment variable is used only on the server for the latest-repositories feed. Public requests work without it; failures show a GitHub fallback link.
 
-Login or sign up at vercel.com
+## Content and deployment
 
-Create a new project and import your GitHub repo
+Project and social links are in constants/data.js. Career content is translated in public/locales/{en,ru,az}/common.json. Keep the translation keys aligned.
 
-Vercel automatically builds and deploys your portfolio
+Push verified changes to master to use the existing Vercel Git integration. Do not create a second Vercel project. Verify the resulting GitHub deployment status and production pages after pushing.
+
+PostCSS and i18next-fs-backend overrides pin patched transitive versions while retaining Next.js 15 and next-i18next 15. Review these when upgrading their parents.

@@ -103,5 +103,22 @@
   "contactAddress": "Baku, Azerbaijan",
   "formName": "Your Name",
   "formMessage": "Message",
-  "formSubmit": "Send Message"
+  "formSubmit": "Send Message",
+  "formEmail": "Email",
+  "formRequired": "Please fill out all fields.",
+  "formInvalidEmail": "Please enter a valid email address.",
+  "formSuccess": "Message sent. Thank you — I'll be in touch.",
+  "formError": "Your message could not be sent. Please try again or email me directly.",
+  "formSending": "Sending…",
+  "namePlaceholder": "Your name",
+  "emailPlaceholder": "you@example.com",
+  "messagePlaceholder": "Tell me about your project or question.",
+  "language": "Language",
+  "languageError": "Unable to change language. Please try again.",
+  "navigation": "Main navigation",
+  "toggleTheme": "Switch color theme",
+  "openMenu": "Open menu",
+  "closeMenu": "Close menu",
+  "skipContent": "Skip to content",
+  "reposUnavailable": "Recent repositories are unavailable right now. Explore my work on GitHub."
 }

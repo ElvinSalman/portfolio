@@ -9,3 +9,5 @@ export default function about() {
     </ContainerBlock>
   );
 }
+
+export { getStaticProps } from "../lib/pageTranslations";

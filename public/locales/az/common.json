@@ -103,5 +103,22 @@
   "contactAddress": "Bakı, Azərbaycan",
   "formName": "Adınız",
   "formMessage": "Mesajınız",
-  "formSubmit": "Mesajı göndərmək"
+  "formSubmit": "Mesajı göndərmək",
+  "formEmail": "E-poçt",
+  "formRequired": "Zəhmət olmasa, bütün sahələri doldurun.",
+  "formInvalidEmail": "Düzgün e-poçt ünvanı daxil edin.",
+  "formSuccess": "Mesaj göndərildi. Təşəkkür edirəm! Sizinlə əlaqə saxlayacağam.",
+  "formError": "Mesajı göndərmək mümkün olmadı. Yenidən cəhd edin və ya mənə e-poçt yazın.",
+  "formSending": "Göndərilir…",
+  "namePlaceholder": "Adınız",
+  "emailPlaceholder": "you@example.com",
+  "messagePlaceholder": "Layihəniz haqqında danışın və ya sualınızı yazın.",
+  "language": "Dil",
+  "languageError": "Dili dəyişmək mümkün olmadı. Yenidən cəhd edin.",
+  "navigation": "Əsas naviqasiya",
+  "toggleTheme": "Mövzunu dəyiş",
+  "openMenu": "Menyunu aç",
+  "closeMenu": "Menyunu bağla",
+  "skipContent": "Məzmuna keç",
+  "reposUnavailable": "Son repozitoriyalar hazırda əlçatan deyil. İşlərimə GitHub-da baxın."
 }
