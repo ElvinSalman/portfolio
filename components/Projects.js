@@ -1,42 +1,59 @@
-import Image from "next/image";
+import React from "react";
 import userData from "@constants/data";
 import { useTranslation } from "next-i18next";
-export function ProjectCard({ project, index }) {
-  return (
-    <a
-      href={project.link}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="project-card"
-    >
-      <div className="project-image">
-        <Image
-          src={project.imgUrl}
-          alt={project.title}
-          fill
-          sizes="(max-width: 767px) 90vw, 45vw"
-        />
-      </div>
-      <div className="project-caption">
-        <span className="project-number">
-          {String(index + 1).padStart(2, "0")}
-        </span>
-        <h2>{project.title}</h2>
-        <span aria-hidden="true">↗</span>
-      </div>
-    </a>
-  );
-}
+
 export default function Projects() {
-  const { t } = useTranslation("common");
+  const { t, ready } = useTranslation("common");
+  if (!ready) return null;
   return (
-    <section className="page-shell">
-      <h1 className="page-title">{t("projects")}</h1>
-      <div className="project-grid">
-        {userData.projects.map((project, index) => (
-          <ProjectCard key={project.link} project={project} index={index} />
-        ))}
+    <section className="bg-white dark:bg-gray-800">
+      <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold py-20 text-center md:text-left">
+          {t("projects")}
+        </h1>
+      </div>
+      {/* Grid starts here */}
+      <div className="bg-[#F1F1F1] -mt-10 dark:bg-gray-900">
+        <div style={{ overflowX: 'hidden' }} className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 py-20 pb-40">
+          {userData.projects.map((proj, idx) => {
+            // console.log(idx);
+            return (
+              <ProjectCard
+                key={idx}
+                someClass={(idx + 1) % 2 == 0 ? "wow animate_animated animate__fadeInRight" : "wow animate_animated animate__fadeInLeft"}
+                // className="wow animate_animated animate__shakeX"
+                title={proj.title}
+                link={proj.link}
+                imgUrl={proj.imgUrl}
+                number={`${idx + 1}`}
+              />
+            )
+          })}
+        </div>
       </div>
     </section>
   );
 }
+
+const ProjectCard = ({ title, link, imgUrl, number, someClass }) => {
+  // console.log(someClass);
+  return (
+    <a target="_blank" href={link} className={someClass + " w-full block shadow-2xl"}>
+      <div className="relative overflow-hidden">
+        <div className="h-72 object-cover">
+          <img
+            src={imgUrl}
+            alt="portfolio"
+            className="transform hover:scale-125 transition duration-2000 ease-out object-cover h-full w-full"
+          />
+        </div>
+        <h1 style={{maxWidth:"70%"}} className="absolute top-5 left-5 text-gray-50 font-bold text-xl bg-gradient-to-r from-red-600/80 to-blue-400/80 rounded-md px-2">
+          {title}
+        </h1>
+        <h1 className="absolute bottom-10 left-10 text-black/50 font-bold text-xl">
+          {number.length === 1 ? "0" + number : number}
+        </h1>
+      </div>
+    </a>
+  );
+};

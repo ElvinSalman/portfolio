@@ -44,12 +44,11 @@ export default function ContainerBlock({ children }) {
         <meta name="twitter:description" content={t("aboutTitle")} />
         <meta name="twitter:image" content={origin + "/avatar.jpg"} />
       </Head>
-      <a className="skip-link" href="#main-content">
-        {t("skipContent")}
-      </a>
-      <Navbar />
-      <main id="main-content">{children}</main>
-      <Footer />
+      <main className="dark:bg-gray-800 w-full">
+        <Navbar />
+        <div>{children}</div>
+        <Footer />
+      </main>
     </>
   );
 }

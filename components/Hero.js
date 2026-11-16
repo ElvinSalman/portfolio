@@ -1,47 +1,77 @@
-import Image from "next/image";
-import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import { RoughNotationGroup } from "react-rough-notation";
+import { RainbowHighlight } from "./RainbowHighlight";
 import userData from "@constants/data";
 import { useTranslation } from "next-i18next";
+
+
 export default function Hero() {
-  const { t } = useTranslation("common");
+  const colors = ["#F59E0B", "#84CC16", "#10B981", "#3B82F6"];
+  const { t, ready, i18n } = useTranslation("common");
+  const [show, setShow] = useState(false);
+
+
+  // useEffect(() => {
+  //   document.documentElement.lang = i18n.language;
+  // }, [i18n.language]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShow(true), 500);
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <section className="hero page-shell">
-      <div>
-        <p className="eyebrow">
-          {t("name")} · {t("contactAddress")}
-        </p>
-        <h1>
-          <span>Frontend.</span>
-          <br />
-          <span className="hero-accent">React.</span>
-          <br />
-          React Native.
-          <br />
-          <span className="hero-role">{t("developer")}</span>
-        </h1>
-        <p className="hero-description">{t("aboutTitle")}.</p>
-        <div className="button-row">
-          <Link className="button-primary" href="/projects">
-            {t("projects")} <span aria-hidden="true">↗</span>
-          </Link>
-          <Link className="button-secondary" href="/contact">
-            {t("contact")}
-          </Link>
+    <div className="flex flex-row justify-center items-start overflow-hidden">
+      {/* Text container */}
+
+      <div className="w-full md:w-1/2 mx-auto text-center md:text-left lg:p-20">
+        <RoughNotationGroup show={show}>
+          <RainbowHighlight color={colors[0]}>
+            <h1 className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
+              Frontend,
+            </h1>
+          </RainbowHighlight>
+          <RainbowHighlight color={colors[1]}>
+            <h1 className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
+              React,
+            </h1>
+          </RainbowHighlight>
+          <RainbowHighlight color={colors[2]}>
+            <h1 className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
+              React Native,
+            </h1>
+          </RainbowHighlight>
+          <RainbowHighlight color={colors[3]}>
+            <h1 className="text-4xl xl:text-7xl md:text-6xl font-bold text-gray-700 dark:text-gray-200 my-2">
+              {t("developer")}
+            </h1>
+          </RainbowHighlight>
+        </RoughNotationGroup>
+      </div>
+      {/* Image container */}
+      <div className="hidden lg:block relative w-full md:w-1/2 -mr-40 mt-20">
+        <div className="w-3/4 ">
+          <img src={userData.avatarUrl} alt="avatar" className=" shadow" style={{ height: '100%', width: '100%' }} />
+          <div className="flex flex-row justify-between mt-4">
+            <div className="flex flex-row space-x-4">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                fill="currentColor"
+                className="bi bi-arrow-90deg-up"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M4.854 1.146a.5.5 0 0 0-.708 0l-4 4a.5.5 0 1 0 .708.708L4 2.707V12.5A2.5 2.5 0 0 0 6.5 15h8a.5.5 0 0 0 0-1h-8A1.5 1.5 0 0 1 5 12.5V2.707l3.146 3.147a.5.5 0 1 0 .708-.708l-4-4z"
+                />
+              </svg>
+              <p className="font-mono">{t("thatsme")}</p>
+            </div>
+          </div>
         </div>
       </div>
-      <figure className="hero-portrait">
-        <Image
-          src={userData.avatarUrl}
-          alt={t("name")}
-          width={640}
-          height={800}
-          priority
-          sizes="(max-width: 767px) 90vw, 40vw"
-        />
-        <figcaption>
-          {t("thatsme")} <span aria-hidden="true">↗</span>
-        </figcaption>
-      </figure>
-    </section>
+    </div>
   );
 }

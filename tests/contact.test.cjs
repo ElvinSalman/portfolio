@@ -43,7 +43,7 @@ function setup(send) {
 function fill(view, values) {
   for (const [name, value] of Object.entries(values))
     act(() =>
-      view.root.findByProps({ id: name }).props.onChange({ target: { value } }),
+      view.root.findByProps({ id: name }).props.onChange({ target: { name, value } }),
     );
 }
 const valid = {

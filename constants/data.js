@@ -8,6 +8,11 @@ const userData = {
   address: "Baku, Azerbaijan",
   projects: [
     {
+      title: "Telefon28Mobile",
+      link: "https://telefon28mobile.az/en",
+      imgUrl: "/telefon28mobile.png",
+    },
+    {
       title: "Naftalan Products",
       link: "https://naftalanproducts.com/en",
       imgUrl: "/naftalan.png",
