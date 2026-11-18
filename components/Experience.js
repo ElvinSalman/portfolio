@@ -1,18 +1,28 @@
 import userData from "@constants/data";
-import React from "react";
+import React, { useEffect } from "react";
+import i18nConfig from "../next-i18next.config";
 import { useTranslation } from "next-i18next";
 
 export default function Experience() {
-  const { t, ready } = useTranslation("common");
-  const experiences = t("experienceArr", { returnObjects: true }); // 👈 получаем массив из JSON
-  const education = t("educationArr", { returnObjects: true }); // 👈 получаем массив из JSON
-
-  if (!ready) return null;
+  const { t, i18n } = useTranslation("common");
+  const locale = i18n.resolvedLanguage || i18n.language || "en";
+  const fallback = (i18nConfig.resources[locale] || i18nConfig.resources.en).common;
+  const translatedExperiences = t("experienceArr", { returnObjects: true });
+  const translatedEducation = t("educationArr", { returnObjects: true });
+  const validExperiences = Array.isArray(translatedExperiences);
+  const validEducation = Array.isArray(translatedEducation);
+  const experiences = validExperiences ? translatedExperiences : fallback.experienceArr;
+  const education = validEducation ? translatedEducation : fallback.educationArr;
+  useEffect(() => {
+    if (!validExperiences || !validEducation) {
+      console.error("Portfolio career translations unavailable; using bundled locale data.", { locale });
+    }
+  }, [locale, validExperiences, validEducation]);
   return (
     <section className="bg-white dark:bg-gray-800">
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold py-20 text-center md:text-left">
-          {t("experience")}
+          {t("experience", { defaultValue: fallback.experience })}
         </h1>
       </div>
       <div style={{ overflowX: 'hidden' }}  className="bg-[#F1F1F1] dark:bg-gray-900 -mt-10 py-[25px]">
@@ -46,7 +56,7 @@ export default function Experience() {
 
       <div className="max-w-6xl mx-auto h-48 bg-white dark:bg-gray-800">
         <h1 className="text-4xl sm:text-6xl md:text-8xl font-bold py-20 text-center md:text-left">
-          {t("education")}
+          {t("education", { defaultValue: fallback.education })}
         </h1>
       </div>
       <div style={{ overflowX: 'hidden' }} className="bg-[#F1F1F1] dark:bg-gray-900 -mt-10">

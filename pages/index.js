@@ -4,7 +4,7 @@ import FavouriteProjects from "../components/FavouriteProjects";
 import LatestCode from "../components/LatestCode";
 import getLatestRepos from "@lib/getLatestRepos";
 import userData from "@constants/data";
-import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { getStaticProps as getTranslations } from "../lib/pageTranslations";
 
 export default function Home({ repositories }) {
   return (
@@ -26,7 +26,7 @@ export async function getStaticProps({ locale }) {
   return {
     props: {
       repositories,
-      ...(await serverSideTranslations(locale, ["common"])), // подгрузка переводов
+      ...(await getTranslations({ locale })).props,
     },
     revalidate: 60,
   };

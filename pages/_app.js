@@ -3,6 +3,7 @@ import "animate.css/animate.min.css";
 import { ThemeProvider } from "next-themes";
 import { appWithTranslation } from "next-i18next";
 import Script from "next/script";
+import i18nConfig from "../next-i18next.config";
 function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider attribute="class" defaultTheme="light" enableSystem disableTransitionOnChange>
@@ -13,4 +14,4 @@ function MyApp({ Component, pageProps }) {
     </ThemeProvider>
   );
 }
-export default appWithTranslation(MyApp);
+export default appWithTranslation(MyApp, i18nConfig);
